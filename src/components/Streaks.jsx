@@ -2,7 +2,6 @@ import React from 'react'
 import cards from "../data/Cardsdata"
 import Cards from './Cards'
 import "../css/streaks.css"
-import CardContainer from '../container/cardContainer'
 
 function Streaks() {
   return (
