@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "../css/Sidemenu.css"
+import "../css/sidemenu.css"
 import CloseIcon from '@mui/icons-material/Close';
 import HomeIcon from '@mui/icons-material/Home';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';

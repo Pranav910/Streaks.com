@@ -1,6 +1,5 @@
 import React from 'react'
 import "../css/help.css"
-import Navbar from './Navbar'
 
 function Help() {
   return (

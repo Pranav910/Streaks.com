@@ -1,7 +1,5 @@
 import React from 'react'
 import "../css/cards.css"
-import { NavLink } from 'react-router-dom'
-import { connect } from 'react-redux'
 import { createStreak } from "../actions/index"
 import {useDispatch} from 'react-redux'
 
