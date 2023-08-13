@@ -11,6 +11,7 @@ function Cards(props) {
 
   function addData() {
     dispatch(createStreak({ descreption: props.content, id: props.cardIndex, src : props.src }))
+    props.toast()
   }
 
   return (
