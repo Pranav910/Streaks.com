@@ -1,5 +1,5 @@
 import React from 'react'
-import "../css/Registration.css"
+import "../css/registration.css"
 import registration from "../images/registration.jpg"
 import { NavLink } from 'react-router-dom'
 
