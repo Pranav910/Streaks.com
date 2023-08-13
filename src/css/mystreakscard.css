@@ -2,9 +2,11 @@
     height: 200px;
     width: 250px;
     background-color: rgba(116, 116, 197, 0.47);
-    margin: 20px 20px;
+    margin: 20px 26px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.26);
     position: relative;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .mystreakcard-main .content {

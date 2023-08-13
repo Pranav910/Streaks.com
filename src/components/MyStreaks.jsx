@@ -12,22 +12,26 @@ function MyStreaks() {
   return (
     <div className='mystreaks-main'>
       {data.length == 0 ?
-        <div className='no-streaks'>
-          <h2>No streaks added</h2>
-          <NavLink to = '/streaks'>Create Streaks</NavLink>
+        <div className="no-streaks-main">
+          <div className='no-streaks'>
+            <h2>No streaks added</h2>
+            <NavLink to='/streaks'>Add Streaks</NavLink>
+          </div>
         </div> :
 
-        <div className='added-streaks'>
-          {data.map((val, index) => {
-            return (
-              <MyStreaksCard
-                key={index}
-                content={val.descreption}
-                index={val.index}
-                src = {val.src}
-              />
-            )
-          })}
+        <div className="added-streaks-main">
+          <div className='added-streaks'>
+            {data.map((val, index) => {
+              return (
+                <MyStreaksCard
+                  key={index}
+                  content={val.descreption}
+                  index={val.index}
+                  src={val.src}
+                />
+              )
+            })}
+          </div>
         </div>
       }
     </div>
