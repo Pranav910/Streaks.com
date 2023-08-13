@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400&family=David+Libre:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Varela+Round&display=swap');
+
+.error-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.error-div h1{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 70px;
+    background: linear-gradient(147deg, rgb(213, 74, 255) 13.36%, rgb(255, 86, 74) 59.90%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}

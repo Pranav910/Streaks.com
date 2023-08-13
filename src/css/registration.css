@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400&family=David+Libre:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Varela+Round&display=swap');
+
+.main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.292);
+    height: auto;
+    width: 800px;
+    border-radius: 15px;
+    padding: 20px 0;
+}
+
+.main h1{
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.register-div {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.register-div form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-div form input {
+    margin: 10px;
+    border: 0.1px solid rgba(0, 0, 0, 0.345);
+    border-radius: 50px;
+    padding: 10px;
+    outline: none;
+    width: 70%;
+    margin: 10px auto;
+}
+
+.register-div form button {
+    width: 70%;
+    padding: 7px;
+    margin: 30px auto 10px auto;
+    background: linear-gradient(147deg, rgb(213, 74, 255) 13.36%, rgb(255, 86, 74) 59.90%);
+    border: none;
+    color: white;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 17px;
+    transition: all 0.5s;
+}
+
+.register-div form button:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.313);
+    cursor: pointer;
+}
+
+.register-div .img-div {
+    height: 100%;
+    width: 50%;
+}
+
+.register-div .img-div img {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.register-div .or-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+}
+
+.register-div .or-login .have-acc{
+    margin-top: 20px;
+}
+
+.register-div .or-login .have-acc a{
+    text-decoration: none;
+}
+
+.register-div .or-login .have-acc a:hover{
+    text-decoration: underline;
+}
+
+.register-div .or-login .or-div {
+    display: flex;
+    margin: 20px 0 0 0;
+    align-items: center;
+}
+
+.register-div .or-login .line1,
+.line2 {
+    height: 0.5px;
+    width: 70%;
+    background-color: black;
+}
+
+.register-div .or-login .or-div p{
+    margin: 0 10px;
+}

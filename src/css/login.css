@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400&family=David+Libre:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Varela+Round&display=swap');
+
+.lmain{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: 800px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.292);
+    border-radius: 15px;
+}
+
+.lmain h1{
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Varela Round';
+}
+
+.lmain .subl-main {
+    display: flex;
+}
+
+.lmain .subl-main .llogin-div{
+    width: 50%;
+}
+
+
+.lmain .subl-main .limg-div{
+    width: 50%;
+    height: 100%;
+}
+
+.lmain .subl-main .limg-div img {
+     height: 100%;
+     width: 100%;
+}
+
+.lmain .subl-main .llogin-div form {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    height: 100%;
+    justify-content: center;
+}
+
+.lmain .subl-main .llogin-div form input {
+    border: 1px solid black;
+    margin: 10px auto;
+    width: 70%;
+    border-radius: 50px;
+    padding: 10px;
+    outline: none;
+}
+
+.lmain .subl-main .llogin-div form button {
+    width: 70%;
+    margin: 30px auto 10px auto;
+    border: none;
+    color: white;
+    padding: 7px;
+    background: linear-gradient(147deg, rgb(213, 74, 255) 13.36%, rgb(255, 86, 74) 59.90%);
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 17px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.lmain .subl-main .llogin-div form button:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.313);
+}
+
+.lmain .subl-main .llogin-div .forgot-pass {
+    width: 70%;
+    margin: 5px auto 0 auto;
+    display: flex;
+    justify-content: end;
+}
+
+.lmain .subl-main .llogin-div .forgot-pass a{
+    text-decoration: none;
+    color: black;
+}
+
+.lmain .subl-main .llogin-div .forgot-pass a:hover {
+    text-decoration: underline;
+}
+
+.lmain .subl-main .llogin-div .lor-div {
+    width: 70%;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+}
+
+.lmain .subl-main .llogin-div .lor-div .lline-1, .lline-2{
+    width: 100%;
+    background-color: black;
+    height: 0.5px;
+}
+
+.lmain .subl-main .llogin-div .lor-div p{
+    margin: 0 8px;
+}
+
+.lmain .subl-main .llogin-div .lregister {
+    width: 70%;
+    margin: 10px auto;
+}
+
+.lmain .subl-main .llogin-div .lregister a {
+    text-decoration: none;
+}
+
+.lmain .subl-main .llogin-div .lregister a:hover{
+    text-decoration: underline;
+}

@@ -1,0 +1,35 @@
+.home-main {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.home-main .cont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.home-main .cont p {
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.home-main .cont button {
+    margin-top: 20px;
+    padding: 9px 15px 10px 15px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(147deg, rgb(213, 74, 255) 13.36%, rgb(255, 86, 74) 59.90%);
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.home-main .cont button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.288);
+}

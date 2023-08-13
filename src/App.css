@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400&family=David+Libre:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+*{
+  padding: 0;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Inter';
+}
+
+.container{
+  width: 800px;
+  margin: 0 auto;
+}
+
+.side-main {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.244);
+  height: 100%;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.side-menu {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: all 0.5s;
+  background-color: white;
+  width: auto;
+  padding: 0 10px;
+}
+
+.nav-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 11;
+  background-color: white;
+}
+
+.nav-comp {
+  position: sticky;
+  z-index: 5;
+}
+
+.menu {
+  z-index: 1001;
+}
+
+.menu button{
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 0 20px;
+  position: absolute;
+  border: none;
+  background-color: transparent;
+}
+
+.menu button:hover {
+  background-color: rgba(0, 0, 0, 0.244);
+  cursor: pointer;
+}
+
+.sub-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,49 @@
+.navdiv{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.navdiv .nav-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 400px;
+}
+
+.navdiv .logo{
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 1px;
+    background: linear-gradient(147deg, rgb(213, 74, 255) 13.36%, rgb(255, 86, 74) 59.90%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    cursor: pointer;
+}
+
+.navdiv nav ul li .active{
+    border-bottom: 2px solid black;
+}
+
+.navdiv nav ul{
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    height: 100%;
+}
+
+.navdiv nav ul li {
+    margin: auto 0;
+}
+
+.navdiv nav ul li a{
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+    padding-bottom: 3px;
+}
+
+.navdiv nav ul li a:hover{
+    border-bottom: 2px solid black;
+}
