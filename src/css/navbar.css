@@ -1,3 +1,8 @@
+*:focus {
+    outline: none;
+    background: transparent;
+  }
+
 .navdiv{
     display: flex;
     width: 100%;

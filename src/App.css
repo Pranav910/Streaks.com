@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400&family=David+Libre:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
-*{
+* {
   padding: 0;
   margin: 0px;
   box-sizing: border-box;
   font-family: 'Inter';
 }
 
-.container{
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
+  outline: none !important;
+}
+
+.container {
   width: 800px;
   margin: 0 auto;
 }
@@ -49,7 +55,7 @@
   z-index: 1001;
 }
 
-.menu button{
+.menu button {
   height: 40px;
   width: 40px;
   border-radius: 50px;
@@ -75,26 +81,25 @@
   width: 100%;
 }
 
-@media (max-width : 1080px)
-{
-    .side-menu {
-      width: 70%;
-    }
+@media (max-width : 1080px) {
+  .side-menu {
+    width: 70%;
+  }
 
-    .menu {
-      padding: 30px;
-    }
+  .menu {
+    padding: 30px;
+  }
 
-    .menu button{
-      margin: 2vw 2vw;
-    }
+  .menu button {
+    margin: 2vw 2vw;
+  }
 
-    .menu button .open-icon {
-      font-size: 5vw;
-    }
+  .menu button .open-icon {
+    font-size: 5vw;
+  }
 
-    .nav-comp {
-      display: flex;
-      justify-content: space-between;
-    }
+  .nav-comp {
+    display: flex;
+    justify-content: space-between;
+  }
 }
