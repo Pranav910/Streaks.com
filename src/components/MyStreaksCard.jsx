@@ -1,5 +1,6 @@
 import React from 'react'
 import '../css/mystreakscard.css'
+import { NavLink } from 'react-router-dom'
 
 function MyStreaksCard(props) {
     return (
@@ -9,7 +10,9 @@ function MyStreaksCard(props) {
                 <p>{props.index}</p>
             </div>
 
+            <NavLink to = "/drinking-water-streak">
             <img src={props.src} />
+            </NavLink>
         </div>
     )
 }

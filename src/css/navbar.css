@@ -47,3 +47,17 @@
 .navdiv nav ul li a:hover{
     border-bottom: 2px solid black;
 }
+
+@media (max-width : 600px)
+{
+
+    .navdiv .logo {
+        font-size: 7vw;
+        margin-left: 7vw;
+        display: flex;
+    }
+
+    .navdiv nav {
+        display: none;
+    }
+}

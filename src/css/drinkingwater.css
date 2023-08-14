@@ -44,32 +44,6 @@
     margin: 5px 0;
 }
 
-.create-streak {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.streak-status {
     margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.create-streak button {
-    padding: 10px;
-    border-radius: 50px;
-    border: none;
-    background: white;
-    color: black;
-    border: 1px solid black;
-    cursor: pointer;
-    width: 70%;
-    margin: 20px auto;
-    transition: all 0.3s;
-}
-
-.create-streak button:hover {
-    /* transform: translateY(-2px); */
-    /* box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.429); */
-    color: white;
-    background: black;
 }

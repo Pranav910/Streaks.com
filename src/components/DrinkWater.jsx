@@ -43,10 +43,13 @@ function DrinkWater() {
                 </div>
             </div>
 
-            <div className="create-streak">
-                <h2>Wanna make a streak ?</h2>
-                <button onClick={addStreak}>Create Streak</button>
-                <div className="add-streak"></div>
+            <div className="drink-amount drink-container">
+                <h1>How much water did you had today?</h1>
+            </div>
+
+            <div className="streak-status drink-container">
+                <h2>Streak Status</h2>
+                <p></p>
             </div>
         </div>
     )

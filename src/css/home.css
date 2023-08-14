@@ -33,3 +33,21 @@
 .home-main .cont button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.288);
 }
+
+@media (max-width : 600px)
+{
+
+    .home-main .cont {
+        padding: 0 6vw;
+    }
+
+    .home-main .cont p {
+        font-size: 5vw;
+    }
+
+    .home-main .cont button {
+        padding: 1em;
+        margin-top: 3em;
+        font-size: 3.5vw;
+    }
+}
