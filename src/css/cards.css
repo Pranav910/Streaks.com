@@ -104,7 +104,7 @@
 @media (max-width : 1080px)
 {
     .cards {
-        width: 80%;
+        width: 100%;
     }   
 
     .cards .overlay .content .container p {
@@ -121,6 +121,6 @@
 @media (max-height : 2560px)
 {
     .cards {
-        height: 25vh;
+        height: 30vh;
     }
 }
