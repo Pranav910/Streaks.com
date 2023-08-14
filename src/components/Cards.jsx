@@ -2,15 +2,16 @@ import React from 'react'
 import "../css/cards.css"
 import { createStreak } from "../actions/index"
 import {useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux'
 
 function Cards(props) {
 
-  // const data = useSelector(state => state.streaks)
   const dispatch = useDispatch()
-  // console.log(data)
+  const data = useSelector(state => state.streaks)
 
   function addData() {
     dispatch(createStreak({ descreption: props.content, id: props.cardIndex, src : props.src }))
+    console.log(data)
     props.toast()
   }
 

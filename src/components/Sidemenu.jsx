@@ -29,7 +29,7 @@ function Sidemenu(props) {
       </div>
       <div className="line"></div>
       <div className="options">
-        <NavLink to={"/"}>
+        <NavLink to={"/"} onClick={closeMenu}>
           <div className='home hover'>
             <div className="home-logo">
               <HomeIcon />
@@ -38,7 +38,7 @@ function Sidemenu(props) {
           </div>
         </NavLink>
 
-        <NavLink to={'/my-streaks'}>
+        <NavLink to={'/my-streaks'} onClick={closeMenu}>
           <div className='ostreaks hover'>
             <div className="clock-logo">
               <AccessTimeIcon />
@@ -47,7 +47,7 @@ function Sidemenu(props) {
           </div>
         </NavLink>
 
-        <NavLink>
+        <NavLink onClick={closeMenu}>
           <div className='contact hover'>
             <div className="contact-logo">
               <ContactsIcon />
