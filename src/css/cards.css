@@ -105,7 +105,6 @@
 {
     .cards {
         width: 80%;
-        height: 45vh;
     }   
 
     .cards .overlay .content .container p {
@@ -116,5 +115,12 @@
         padding: 2vw;
         font-size: 2vw;
         margin-top: 8vh;
+    }
+}
+
+@media (max-height : 2560px)
+{
+    .cards {
+        height: 25vh;
     }
 }
