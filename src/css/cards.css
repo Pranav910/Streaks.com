@@ -100,3 +100,21 @@
         border-radius: 0;
     }
 }
+
+@media (max-width : 1080px)
+{
+    .cards {
+        width: 80%;
+        height: 45vh;
+    }   
+
+    .cards .overlay .content .container p {
+        font-size: 3.5vw;
+    }
+
+    .cards .overlay .content .container button {
+        padding: 2vw;
+        font-size: 2vw;
+        margin-top: 8vh;
+    }
+}
