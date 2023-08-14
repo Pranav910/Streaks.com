@@ -4,12 +4,13 @@
     width: 80%;
     margin: 0 auto;
     height: auto;
+    padding-top: 100px;
 }
 
 .streaks-main h1 {
     text-align: center;
     font-family: 'Varela Round';
-    margin: 100px 0 50px 0;
+    margin: 0 0 50px 0;
     letter-spacing: 0.5px;
     word-spacing: 7px;
 }

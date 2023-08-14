@@ -60,9 +60,12 @@ function App() {
       <div className='nav-container'>
 
         <div className="nav-comp">
-          {location.pathname != "/streaks" ? <div className="menu">
+          {/* {location.pathname != "/streaks" ? <div className="menu">
             <button onClick={openMenu}><MenuIcon /></button>
-          </div> : true}
+          </div> : true} */}
+          <div className="menu">
+            <button onClick={openMenu}><MenuIcon /></button>
+          </div>
 
           <Navbar /></div>
         <div className="sub-nav" style={{ boxShadow: `0px 2px 7px rgba(0, 0, 0, 0.313)`, opacity: `${shadowIntensity > 1 ? 1 : shadowIntensity}` }}></div>

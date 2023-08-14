@@ -13,7 +13,7 @@
 }
 
 .side-main {
-  position: absolute;
+  position: fixed;
   background-color: rgba(0, 0, 0, 0.244);
   height: 100%;
   width: 100%;
@@ -21,7 +21,7 @@
 }
 
 .side-menu {
-  position: absolute;
+  position: fixed;
   height: 100%;
   top: 0;
   left: 0;
