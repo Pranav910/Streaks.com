@@ -108,13 +108,13 @@
     }   
 
     .cards .overlay .content .container p {
-        font-size: 3.5vw;
+        font-size: 5vw;
     }
 
     .cards .overlay .content .container button {
         padding: 2vw;
-        font-size: 2vw;
-        margin-top: 8vh;
+        font-size: 3vw;
+        margin-top: 6vh;
     }
 }
 
