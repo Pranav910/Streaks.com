@@ -48,12 +48,12 @@
     border-bottom: 2px solid black;
 }
 
-@media (max-width : 600px)
+@media (max-width : 1080px)
 {
 
     .navdiv .logo {
         font-size: 7vw;
-        margin-left: 7vw;
+        margin-left: 37vw;
         display: flex;
     }
 

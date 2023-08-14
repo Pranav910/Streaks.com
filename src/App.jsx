@@ -64,7 +64,7 @@ function App() {
             <button onClick={openMenu}><MenuIcon /></button>
           </div> : true} */}
           <div className="menu">
-            <button onClick={openMenu}><MenuIcon /></button>
+            <button onClick={openMenu}><MenuIcon className='open-icon'/></button>
           </div>
 
           <Navbar /></div>
