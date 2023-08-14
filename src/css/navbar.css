@@ -63,6 +63,6 @@
 
     .navdiv .nav-content {
         flex-direction: row-reverse;
-        padding: 10px 70px;
+        padding: 30px 70px;
     }
 }
