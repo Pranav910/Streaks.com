@@ -88,4 +88,9 @@
     .menu button .open-icon {
       font-size: 5vw;
     }
+
+    .nav-comp {
+      display: flex;
+      justify-content: space-between;
+    }
 }

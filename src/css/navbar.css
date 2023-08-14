@@ -53,11 +53,16 @@
 
     .navdiv .logo {
         font-size: 7vw;
-        margin-left: 37vw;
-        display: flex;
+        /* margin-left: 37vw; */
+        /* display: flex; */
     }
 
     .navdiv nav {
         display: none;
+    }
+
+    .navdiv .nav-content {
+        flex-direction: row-reverse;
+        padding: 10px 70px;
     }
 }

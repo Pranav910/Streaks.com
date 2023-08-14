@@ -60,9 +60,6 @@ function App() {
       <div className='nav-container'>
 
         <div className="nav-comp">
-          {/* {location.pathname != "/streaks" ? <div className="menu">
-            <button onClick={openMenu}><MenuIcon /></button>
-          </div> : true} */}
           <div className="menu">
             <button onClick={openMenu}><MenuIcon className='open-icon'/></button>
           </div>
