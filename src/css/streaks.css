@@ -10,13 +10,12 @@
 .streaks-main h1 {
     text-align: center;
     font-family: 'Varela Round';
-    margin: 0 0 50px 0;
+    margin: 0 0 40px 0;
     letter-spacing: 0.5px;
     word-spacing: 7px;
 }
 
 .streaks{
     display: flex;
-    /* justify-content: space-between; */
     flex-wrap: wrap;
 }

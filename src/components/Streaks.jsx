@@ -34,9 +34,9 @@ function Streaks() {
       }
     </div>
 
-    <div className="info">
+    {/* <div className="info">
         <p>Start building your streaks</p>
-      </div>
+      </div> */}
     </div>
   )
 }
