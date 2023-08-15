@@ -2,12 +2,14 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import MyStreaksCard from './MyStreaksCard'
 import '../css/mystreaks.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Routes, Route, Outlet, useNavigate} from 'react-router-dom'
+import DrinkWater from './DrinkWater'
 
 function MyStreaks() {
 
   const data = useSelector((state) => state.streaks)
   console.log(data)
+  const navigate = useNavigate()
 
   return (
     <div className='mystreaks-main'>
@@ -16,6 +18,7 @@ function MyStreaks() {
           <div className='no-streaks'>
             <h2>No streaks added</h2>
             <NavLink to='/streaks'>Add Streaks</NavLink>
+            
           </div>
         </div> :
 
@@ -28,13 +31,17 @@ function MyStreaks() {
                   content={val.descreption}
                   index={val.index}
                   src={val.src}
+                  statusLink = {val.statusLink}
+                  time = {val.timeOfCreation.time}
                 />
               )
             })}
           </div>
+          
         </div>
       }
     </div>
+    
   )
 }
 

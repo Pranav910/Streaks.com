@@ -1,8 +1,17 @@
 import React from 'react'
 import '../css/mystreakscard.css'
-import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import DrinkWater from './DrinkWater'
 
 function MyStreaksCard(props) {
+
+    const showStatus = useNavigate()
+
+    function navigate()
+    {
+        showStatus(`${props.statusLink}`, {state : {time : props.time}})
+    }
+
     return (
         <div className='mystreakcard-main'>
             <div className="content">
@@ -10,9 +19,12 @@ function MyStreaksCard(props) {
                 <p>{props.index}</p>
             </div>
 
-            <NavLink to = "/drinking-water-streak">
-            <img src={props.src} />
-            </NavLink>
+
+
+            <div className="navigate" onClick={navigate}>
+                <img src={props.src} />
+            </div>
+
         </div>
     )
 }

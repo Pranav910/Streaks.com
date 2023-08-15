@@ -18,3 +18,10 @@
     width: 100%;
     position: absolute;
 }
+
+.navigate {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    position: absolute;
+}

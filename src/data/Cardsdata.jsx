@@ -11,7 +11,7 @@ const cards = [
     {
         description : "Water Drinking Streak",
         img : drinkwater,
-        link : "/drinking-water-streak",
+        link : "/my-streaks/drinking-water-streak",
         index : 0
     },
 

@@ -1,33 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import "../css/drinkingwater.css"
 import LocalDrinkSharpIcon from '@mui/icons-material/LocalDrinkSharp';
+import { useLocation } from 'react-router-dom';
 
-function DrinkWater() {
+function DrinkWater(props) {
 
-    const [date, setDate] = useState(new Date())
-    const [day, setDay] = useState(date.getDay().toString())
-
-    function addStreak() {
-
-        setDate(new Date())
-
-        setDay(() => {
-            if (date.getDay() == 1)
-                return "Monday"
-            else if (date.getDay() == 2)
-                return "Tuesday"
-            else if (date.getDay() == 3)
-                return "Wednesday"
-            else if (date.getDay() == 4)
-                return "Thursday"
-            else if (date.getDay() == 5)
-                return "Friday"
-            else if (date.getDay() == 6)
-                return "Satruday"
-            else if (date.getDay() == 7)
-                return "Sunday"
-        })
-    }
+    const fetchedData = useLocation()
 
     return (
         <div className='drink-main'>
@@ -44,12 +22,12 @@ function DrinkWater() {
             </div>
 
             <div className="drink-amount drink-container">
-                <h1>How much water did you had today?</h1>
+                <h1>How much glass of water did you had today?</h1>
             </div>
 
             <div className="streak-status drink-container">
                 <h2>Streak Status</h2>
-                <p></p>
+                <p>Time of creation : {fetchedData.state.time}</p>
             </div>
         </div>
     )
