@@ -38,7 +38,7 @@ function App() {
   }, []);
 
   function openMenu() {
-    setZ_index(1000)
+    setZ_index(100)
     setOpacity(1)
     setTranslate(0)
   }

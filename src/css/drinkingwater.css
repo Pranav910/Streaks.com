@@ -16,6 +16,7 @@
 
 .drink-main{
     padding: 110px 0 0 0;
+    position: relative;
 }
 
 .drink-content h1 {
@@ -23,7 +24,6 @@
     display: flex;
     align-items: center;
     color: white;
-    /* text-decoration: underline; */
 }
 
 .drink-content {
@@ -44,10 +44,73 @@
     margin: 5px 0;
 }
 
+.amount-radio div {
+    margin: 15px 0;
+}
+
+.amount-radio div input, label{
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+.amount-radio div input[type = "radio"] {
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    border: 1px solid black;
+}
+
 .drink-amount {
     margin-top: 50px;
+    transition: opacity 1s, transform 5s, display 5s;
+}
+
+.drink-amount button {
+    padding: 8px;
+    border: none;
+    color: white;
+    background: linear-gradient(147deg, rgb(213, 74, 255) 13.36%, rgb(255, 86, 74) 59.90%);
+    border-radius: 50px;
+    margin-top: 10px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.drink-amount button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.288);
+}
+
+.drink-submain {
+    overflow: hidden;
+    position: relative;
 }
 
 .streak-status {
+    margin-bottom: 50px;
     margin-top: 50px;
+    transition: top 3s;
+}
+
+.streak-status p {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.tick-span {
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+    display: inline-block;
+    margin-left: 15px;
+    position: relative;
+}
+
+.tick-span img {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

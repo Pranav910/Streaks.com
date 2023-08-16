@@ -2,10 +2,24 @@ import React, { useEffect, useState } from 'react'
 import "../css/drinkingwater.css"
 import LocalDrinkSharpIcon from '@mui/icons-material/LocalDrinkSharp';
 import { useLocation } from 'react-router-dom';
+import green_tick from '../images/green-tick.jpg'
 
 function DrinkWater(props) {
 
     const fetchedData = useLocation()
+    const [display, setDisplay] = useState("block")
+    const [translate, setTranslate] = useState(0)
+    const [opacity, setOpacity] = useState(1)
+    const [position, setPosition] = useState("absolute")
+    const [top, setTop] = useState(100)
+
+    function displayNone() {
+        setTranslate(100)
+        setOpacity(0)
+        // setPosition("absolute")
+        setTop(0)
+        // setDisplay("none")
+    }
 
     return (
         <div className='drink-main'>
@@ -21,13 +35,35 @@ function DrinkWater(props) {
                 </div>
             </div>
 
-            <div className="drink-amount drink-container">
-                <h1>How much glass of water did you had today?</h1>
-            </div>
+            <div className="drink-submain">
+                <div className="drink-amount drink-container" style={{ transform: `translate(${translate}%)`, display: `${display}`, opacity: `${opacity}`}}>
+                    <h1>How much glass of water did you had today?</h1>
+                    <div className="amount-radio">
+                        <div>
+                            <input type="radio" id='bad' name='check' />
+                            <label htmlFor="bad">2-3</label>
+                        </div>
+                        <div>
+                            <input type="radio" id='moderate' name='check' />
+                            <label htmlFor="moderate">4-6</label>
+                        </div>
+                        <div>
+                            <input type="radio" id='good' name='check' />
+                            <label htmlFor="good">7-9</label>
+                        </div>
+                        <div>
+                            <input type="radio" id='very-good' name='check' />
+                            <label htmlFor="very-good">10-12</label>
+                        </div>
+                    </div>
+                    <button onClick={displayNone}>Submit</button>
+                </div>
 
-            <div className="streak-status drink-container">
-                <h2>Streak Status</h2>
-                <p>Time of creation : {fetchedData.state.time}</p>
+                <div className="streak-status drink-container" style={{position : `${[position]}`, top : `${top}%`}}>
+                    <h2>Streak Status</h2>
+                    <p>Today's Streak : <span className='tick-span'><img src = {green_tick} alt="" /></span></p>
+                    <p>Time of creation : {fetchedData.state.time}</p>
+                </div>
             </div>
         </div>
     )
