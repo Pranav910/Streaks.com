@@ -118,3 +118,18 @@
     padding: 20px;
   }
 }
+
+@media (max-width : 600px)
+{
+  .side-menu{
+    width: 80%;
+  }
+
+  .menu button .open-icon {
+    font-size: 7vw;
+  }
+
+  .menu {
+    padding: 10px;
+  }
+}
