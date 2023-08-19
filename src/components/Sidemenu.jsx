@@ -15,6 +15,10 @@ function Sidemenu(props) {
     props.closeMenu()
   }
 
+  const mstyle = {
+    '@media (max-width : 1080px)' : {fontSize : "20px"}
+  }
+
   return (
     <div className='menu-main'>
 
@@ -25,14 +29,14 @@ function Sidemenu(props) {
             <p>Pranav910</p>
           </div>
         </div>
-        <button onClick={closeMenu}><CloseIcon /></button>
+        <button onClick={closeMenu}><CloseIcon className='close-icon' style={{fontSize : "20px"}}/></button>
       </div>
       <div className="line"></div>
       <div className="options">
         <NavLink to={"/"} onClick={closeMenu}>
           <div className='home hover'>
             <div className="home-logo">
-              <HomeIcon />
+              <HomeIcon style={{"@media (max-width : 1080px)" : {fontSize : "50px"}}}/>
             </div>
             <p>Home</p>
           </div>

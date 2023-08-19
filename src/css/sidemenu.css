@@ -10,7 +10,7 @@
     margin-top: 15px;
 }
 
-.profile .user{
+.profile .user {
     transform: translateY(50%);
     margin-left: 5px;
 }
@@ -32,7 +32,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 0;
     color: white;
     transform: translate(20%, -50%);
 }
@@ -98,4 +97,42 @@
 
 .logout a p {
     margin-right: 10px;
+}
+
+@media (max-width : 1080px) {
+    .menu-main .close p {
+        font-size: 4vw;
+    }
+
+    .profile-img {
+        width: 10vw;
+        height: 10vw;
+        margin-right: 2vw;
+    }
+
+    .menu-main .close button {
+        height: 7vw;
+        width: 7vw;
+        margin: 3vw 2vw;
+        transform: translateY(-10%);
+        font-size: 10vw;
+        padding: 0;
+    }
+
+    .main-main .close button .close-icon {
+        height: 100px;
+        width: 100px;
+        background-color: black;
+        padding: 0;
+    }
+
+    .options {
+        font-size: 5vw;
+    }
+
+    .home-logo {
+        height: 10vw;
+        width: 10vw;
+        font-size: 7vw;
+    }
 }
