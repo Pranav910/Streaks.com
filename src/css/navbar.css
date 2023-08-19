@@ -71,3 +71,20 @@
         padding: 30px 70px;
     }
 }
+
+@media (max-width : 412px)
+{
+    .navdiv .logo {
+        font-size: 8vw;
+        margin-left: 30px;/
+    }
+
+    .navdiv nav {
+        display: none;
+    }
+
+    .navdiv .nav-content {
+        flex-direction: row-reverse;
+        padding: 25px 40px;
+    }
+}

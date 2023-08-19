@@ -51,3 +51,10 @@
         font-size: 3.5vw;
     }
 }
+
+/* @media (max-width : 415px)
+{
+    .home-main .cont {
+        padding: 0 2vw;
+    }
+} */
