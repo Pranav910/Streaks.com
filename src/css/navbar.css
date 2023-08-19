@@ -83,7 +83,8 @@
 
     .navdiv .nav-content {
         flex-direction: row-reverse;
-        padding: 25px 40px;
+        padding: 50px 60px;
+        /* background-color: black; */
     }
 }
 
