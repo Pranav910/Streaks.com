@@ -49,12 +49,6 @@ function App() {
     setTranslate(-100)
   }
 
-  function closeSideMenu() {
-    setZ_index(0)
-    setTranslate(-100)
-    setOpacity(0)
-  }
-
   return (
     <div className="app-main">
       <div className='nav-container'>
@@ -68,7 +62,7 @@ function App() {
         <div className="sub-nav" style={{ boxShadow: `0px 2px 7px rgba(0, 0, 0, 0.313)`, opacity: `${shadowIntensity > 1 ? 1 : shadowIntensity}` }}></div>
       </div>
 
-      <div className='side-main' style={{ opacity: `${opacity}`, zIndex: `${z_index}` }} onClick={closeSideMenu}>
+      <div className='side-main' style={{ opacity: `${opacity}`, zIndex: `${z_index}` }} onClick={closeMenu}>
       </div>
 
       <div className="side-menu" style={{ transform: `translate(${translate}%)` }}>

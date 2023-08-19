@@ -85,7 +85,7 @@
   width: 100%;
 }
 
-@media (max-width : 1080px) {
+/* @media (max-width : 1080px) {
   .side-menu {
     width: 70%;
   }
@@ -106,7 +106,7 @@
     display: flex;
     justify-content: space-between;
   }
-}
+} */
 
 @media (max-width : 412px)
 {
