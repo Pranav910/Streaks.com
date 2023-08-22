@@ -17,7 +17,7 @@ function Registration() {
 
     const {email, password, cpassword} = data
 
-    const res = await fetch('/new_registration', {
+    const res = await fetch('https://streak-api.vercel.app/new_registration', {
       method : 'post',
       headers : {
         'Content-Type': 'application/json'
