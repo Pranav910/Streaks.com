@@ -1,23 +1,46 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../css/registration.css"
 import registration from "../images/registration.jpg"
 import { NavLink } from 'react-router-dom'
 
 function Registration() {
 
+  const [data, setData] = useState({
+    email : '',
+    password : '',
+    cpassword : ''
+  })
+
   async function submit(e)
   {
     e.preventDefault()
 
-    const res = await fetch('/register', {
-      method : "POST",
+    const {email, password, cpassword} = data
+
+    const res = await fetch('/new_registration', {
+      method : 'post',
       headers : {
         'Content-Type': 'application/json'
       },
       body : JSON.stringify({
-        FIRST_NAME : "Pranav"
+        email, password, cpassword
       })
     })
+
+    const resdata = await res.json()
+    console.log(resdata.message)
+  }
+
+  function enterData(e)
+  {
+      const {name, value} = e.target
+
+      setData(prev => {
+        return ({
+          ...prev,
+          [name] : value
+        })
+      })
   }
 
   return (
@@ -25,9 +48,9 @@ function Registration() {
       <h1>Create an Account</h1>
     <div className='register-div'>
       <form>
-        <input type="email" placeholder='Enter email' />
-        <input type="password" placeholder='Enter password' />
-        <input type="password" placeholder='Confirm password' />
+        <input value = {data.email} name="email" type="email" placeholder='Enter email' onChange={enterData}/>
+        <input value = {data.password} name="password" type="password" placeholder='Enter password' onChange={enterData}/>
+        <input value = {data.cpassword} name="cpassword" type="password" placeholder='Confirm password' onChange={enterData}/>
         <button type='submit' onClick={submit}>Register</button>
         <div className="or-login">
         <div className="or-div">

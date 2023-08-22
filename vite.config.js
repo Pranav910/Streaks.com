@@ -3,17 +3,13 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  base : '/',
-  server : {proxy : {
-    '/register': {
-      target: 'http://localhost:5000',
-      changeOrigin : true,
-      secure : false,
-      ws : true,
-      rewrite : path => path.replace(/^\/app/, ''),
+
+  server : {
+    proxy : {
+      '/new_registration' : 'http://localhost:5000',
+      '/login' : 'http://localhost:5000'
     }
-  
-  }}
+  },
+  plugins: [react()],
   
 })
