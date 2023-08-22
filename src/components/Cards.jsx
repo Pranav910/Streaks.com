@@ -10,6 +10,9 @@ function Cards(props) {
 
 
   const dispatch = useDispatch()
+  const data = useSelector(state => state.streaks)
+  
+  // console.log("second")
 
   function SetDay() {
 
