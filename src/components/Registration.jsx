@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 function Registration() {
 
   const [data, setData] = useState({
+    username : '',
     email : '',
     password : '',
     cpassword : ''
@@ -15,7 +16,9 @@ function Registration() {
   {
     e.preventDefault()
 
-    const {email, password, cpassword} = data
+    const {username, email, password, cpassword} = data
+
+    // https://streaks-api-ckn9.onrender.com
 
     const res = await fetch('https://streaks-api-ckn9.onrender.com/new_registration', {
       method : 'post',
@@ -23,12 +26,12 @@ function Registration() {
         'Content-Type': 'application/json'
       },
       body : JSON.stringify({
-        email, password, cpassword
+        username, email, password, cpassword
       })
     })
 
     const resdata = await res.json()
-    console.log(resdata.message)
+    console.log(resdata)
   }
 
   function enterData(e)
@@ -48,6 +51,7 @@ function Registration() {
       <h1>Create an Account</h1>
     <div className='register-div'>
       <form>
+        <input type="text" value = {data.username} name = 'username' placeholder='Enter Username' onChange={enterData} />
         <input value = {data.email} name="email" type="email" placeholder='Enter email' onChange={enterData}/>
         <input value = {data.password} name="password" type="password" placeholder='Enter password' onChange={enterData}/>
         <input value = {data.cpassword} name="cpassword" type="password" placeholder='Confirm password' onChange={enterData}/>
