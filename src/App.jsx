@@ -20,6 +20,7 @@ function App() {
   const [translate, setTranslate] = useState(-100)
   const [opacity, setOpacity] = useState(0)
   const [z_index, setZ_index] = useState(0)
+  const [loginStatus, setLoginStatus] = useState(false)
   const location = useLocation()
   const handleScroll = () => {
     const currentPosition = window.scrollY || document.documentElement.scrollTop;
@@ -36,6 +37,32 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  async function findIfLogin() {
+    const res = await fetch('/user-login', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include'
+    })
+
+    if (res.status === 200) {
+      console.log('hello')
+      setLoginStatus(true)
+    }
+    else {
+      console.log('not hello')
+      setLoginStatus(false)
+    }
+  }
+
+  useEffect(() => {
+
+    findIfLogin()
+
+  })
 
   function openMenu() {
     setZ_index(100)
@@ -58,7 +85,7 @@ function App() {
             <button onClick={openMenu}><MenuIcon className='open-icon' /></button>
           </div>
 
-          <Navbar /></div>
+          <Navbar login={loginStatus} /></div>
         <div className="sub-nav" style={{ boxShadow: `0px 2px 7px rgba(0, 0, 0, 0.313)`, opacity: `${shadowIntensity > 1 ? 1 : shadowIntensity}` }}></div>
       </div>
 
@@ -78,7 +105,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="streaks" element={<Streaks />} >
         </Route>
-        <Route path='my-streaks' element={<MyStreaks />}/> 
+        <Route path='my-streaks' element={<MyStreaks />} />
         <Route path='/my-streaks/drinking-water-streak' element={<DrinkWater />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Registration />} />

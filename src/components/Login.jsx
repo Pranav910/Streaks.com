@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import login from "../images/login.jpg"
 import "../css/login.css"
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 
 function Login() {
@@ -10,6 +10,8 @@ function Login() {
     email: '',
     password: '',
   })
+
+  const navigate = useNavigate()
 
   function enterData(e) {
     const { name, value } = e.target
@@ -27,17 +29,19 @@ function Login() {
 
     const { email, password } = data
 
-    const res = await fetch('https://streaks-api-ckn9.onrender.com/user-login', {
+    const res = await fetch('/user-login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', },
       body: JSON.stringify({ email, password }),
-      credentials : 'include'
+      credentials: 'include'
     })
 
     const resData = await res.json()
 
-    if (res.status === 200)
-      toast.success(resData.message, { position: toast.POSITION.TOP_CENTER })
+    if (res.status === 200) { 
+      navigate('/streaks')
+      toast.success(resData.message, { position: toast.POSITION.TOP_CENTER }) 
+  }
     if (res.status === 400)
       toast.error(resData.message, { position: toast.POSITION.TOP_CENTER })
     if (res.status === 401)
@@ -47,7 +51,7 @@ function Login() {
 
   return (
     <div className="lmain">
-        <ToastContainer />
+      <ToastContainer />
       <div className="l-submain">
         <h1>User Login</h1>
         <div className='subl-main'>
