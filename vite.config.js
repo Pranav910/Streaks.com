@@ -7,6 +7,8 @@ export default defineConfig({
   server : {
     proxy : {
       '/new_registration' : 'http://localhost:5000',
+      '/user-login' : 'http://localhost:5000',
+      '/streaks-option' : 'http://localhost:5000',
     }
   },
   plugins: [react()],

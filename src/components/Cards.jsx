@@ -3,6 +3,7 @@ import "../css/cards.css"
 import { createStreak } from "../actions/index"
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
 
 function Cards(props) {
 
@@ -11,7 +12,7 @@ function Cards(props) {
 
   const dispatch = useDispatch()
   const data = useSelector(state => state.streaks)
-  
+
   // console.log("second")
 
   function SetDay() {
@@ -33,47 +34,62 @@ function Cards(props) {
 
   }
 
-  function setMonth()
-  {
+  function setMonth() {
 
-    if(date.getMonth() == "0")
+    if (date.getMonth() == "0")
       return "January"
-    else if(date.getMonth() == "1")
+    else if (date.getMonth() == "1")
       return "February"
-    else if(date.getMonth() == "2")
+    else if (date.getMonth() == "2")
       return "March"
-    else if(date.getMonth() == "3")
+    else if (date.getMonth() == "3")
       return "April"
-    else if(date.getMonth() == "4")
+    else if (date.getMonth() == "4")
       return "May"
-    else if(date.getMonth() == "5")
+    else if (date.getMonth() == "5")
       return "June"
-    else if(date.getMonth() == "6")
+    else if (date.getMonth() == "6")
       return "July"
-    else if(date.getMonth() == "7")
+    else if (date.getMonth() == "7")
       return "August"
-    else if(date.getMonth() == "8")
+    else if (date.getMonth() == "8")
       return "September"
-    else if(date.getMonth() == "9")
+    else if (date.getMonth() == "9")
       return "October"
-    else if(date.getMonth() == "10")
+    else if (date.getMonth() == "10")
       return "November"
-    else if(date.getMonth() == "11")
+    else if (date.getMonth() == "11")
       return "December"
   }
 
-  function getTime()
-  {
+  function getTime() {
     return `${SetDay()}, ${setMonth()}, ${date.getFullYear()}-${date.getHours()}h : ${date.getMinutes()}m : ${date.getSeconds()}s`
   }
 
-  function addData() {
-    setDate(new Date())
+  async function addData(e) {
 
-    const time = getTime()
+    const res = await fetch('https://streaks-api-ckn9.onrender.com/streaks-option', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include'
+    })
 
-    dispatch(createStreak({ descreption: props.content, id: props.cardIndex, src: props.src, statusLink: props.link, timeOfCreation: { time } }))
-    props.toast()
+    if (res.status === 401) {
+      props.toast('error')
+    }
+
+    else if (res.status === 200) {
+
+      setDate(new Date())
+
+      const time = getTime()
+
+      dispatch(createStreak({ descreption: props.content, id: props.cardIndex, src: props.src, statusLink: props.link, timeOfCreation: { time } }))
+      props.toast('success')
+    }
   }
 
   return (

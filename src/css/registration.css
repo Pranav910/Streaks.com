@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400&family=David+Libre:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Varela+Round&display=swap');
 
 .main {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.register-submain {
+    height: auto;
+    width: 800px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.292);
-    height: auto;
-    width: 800px;
     border-radius: 15px;
     padding: 20px 0;
 }
