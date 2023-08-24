@@ -29,8 +29,9 @@ function Login() {
 
     const res = await fetch('https://streaks-api-ckn9.onrender.com/user-login', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
+      headers: { 'Content-Type': 'application/json', },
+      body: JSON.stringify({ email, password }),
+      credentials : 'include'
     })
 
     const resData = await res.json()
