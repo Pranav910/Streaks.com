@@ -68,7 +68,7 @@ function Cards(props) {
 
   async function addData(e) {
 
-    const res = await fetch('/streaks-option', {
+    const res = await fetch('https://streaks-api-ckn9.onrender.com/streaks-option', {
       method: 'GET',
       headers: {
         Accept: 'application/json',

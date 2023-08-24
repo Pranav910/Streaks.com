@@ -20,7 +20,7 @@ function Registration() {
 
     // https://streaks-api-ckn9.onrender.com
 
-    const res = await fetch('/new_registration', {
+    const res = await fetch('https://streaks-api-ckn9.onrender.com/new_registration', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
