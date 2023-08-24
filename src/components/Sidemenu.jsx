@@ -5,6 +5,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import LogoutIcon from '@mui/icons-material/Logout';
+import LoginIcon from '@mui/icons-material/Login';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import { NavLink } from 'react-router-dom';
 
 function Sidemenu(props) {
@@ -29,18 +31,36 @@ function Sidemenu(props) {
       </div>
       <div className="line"></div>
       <div className="options">
-        <NavLink to={"/"} onClick={closeMenu}>
+      <NavLink to={"/"} onClick={closeMenu}>
           <div className='home hover'>
-            <div className="home-logo">
+            <div className="home-logo logo">
               <HomeIcon />
             </div>
             <p>Home</p>
           </div>
         </NavLink>
 
+        <NavLink to={"/register"} onClick={closeMenu} className='hide'>
+          <div className='register hover'>
+            <div className="register-logo logo">
+              <PersonAddAltIcon/>
+            </div>
+            <p>Register</p>
+          </div>
+        </NavLink>
+
+        <NavLink to={"/login"} onClick={closeMenu} className='hide'>
+          <div className='login hover'>
+            <div className="login-logo logo">
+              <LoginIcon />
+            </div>
+            <p>Login</p>
+          </div>
+        </NavLink>
+
         <NavLink to={'/my-streaks'} onClick={closeMenu}>
           <div className='ostreaks hover'>
-            <div className="clock-logo">
+            <div className="clock-logo logo">
               <AccessTimeIcon />
             </div>
             <p>My Streaks</p>
@@ -49,7 +69,7 @@ function Sidemenu(props) {
 
         <NavLink onClick={closeMenu}>
           <div className='contact hover'>
-            <div className="contact-logo">
+            <div className="contact-logo logo">
               <ContactsIcon />
             </div>
             <p>Contact Us</p>

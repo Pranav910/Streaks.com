@@ -99,6 +99,10 @@
     margin-right: 10px;
 }
 
+.hide {
+    display: none;
+}
+
 @media (max-width : 1080px) {
     .menu-main .close p {
         font-size: 4vw;
@@ -128,5 +132,9 @@
 
     .options {
         font-size: 5vw;
+    }
+
+    .hide {
+        display: inline;
     }
 }

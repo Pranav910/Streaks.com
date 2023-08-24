@@ -3,9 +3,12 @@
 .lmain{
     height: 100%;
     width: 100%;
+    position: absolute;
 }
 
 .l-submain {
+    height: auto;
+    width: 700px;
     position: absolute;
     top: 50%;
     left: 50%;
