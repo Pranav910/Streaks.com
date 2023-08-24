@@ -27,6 +27,7 @@
 .register-div {
     display: flex;
     flex-direction: row-reverse;
+    position: relative;
 }
 
 .register-div form {
@@ -110,4 +111,44 @@
 
 .register-div .or-login .or-div p{
     margin: 0 10px;
+}
+
+.main-img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+@media (max-width : 650px)
+{
+    .register-submain {
+        width: 400px;
+    }
+
+    .register-div .img-div {
+        opacity: 0;
+        width: 100%;
+    }
+
+    .register-div form {
+        width: 100%;
+        position: absolute;
+        z-index: 1000;
+    }
+
+    .main-img {
+        display: inline-block;
+        opacity: 0.2;
+        padding: 100px 0;
+    }
+
+    .register-submain {
+        box-shadow: none;
+    }
+
+    .register-div .or-login .have-acc{
+        text-align: center;
+    }
+    
 }
