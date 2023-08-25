@@ -27,7 +27,8 @@ function Sidemenu(props) {
       headers : {
         Accept : 'application/json',
         'Content-Type' : 'application/json'
-      }
+      },
+      credentials : 'include'
     })
 
     if (res.status === 200)
