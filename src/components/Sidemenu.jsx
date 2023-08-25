@@ -11,11 +11,28 @@ import { NavLink } from 'react-router-dom';
 
 function Sidemenu(props) {
 
-  const [translate, setTranslate] = useState()
+  const [showLogin, setShowLogin] = useState(false)
 
   function closeMenu() {
     props.closeMenu()
   }
+
+  // async function findIfLogin() {
+  //   const res = await fetch('https://streaks-api-ckn9.onrender.com/user-login', {
+  //     method: 'GET',
+  //     headers: {
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json'
+  //     },
+  //     credentials: 'include'
+  //   })
+  // }
+
+  //   useEffect(() => {
+
+  //     findIfLogin()
+  
+  //   })
 
   return (
     <div className='menu-main'>
@@ -49,14 +66,14 @@ function Sidemenu(props) {
           </div>
         </NavLink>
 
-        <NavLink to={"/login"} onClick={closeMenu} className='hide'>
+        {!props.login ? <NavLink to={"/login"} onClick={closeMenu} className='hide'>
           <div className='login hover'>
             <div className="login-logo logo">
               <LoginIcon />
             </div>
             <p>Login</p>
           </div>
-        </NavLink>
+        </NavLink> : null}
 
         <NavLink to={'/my-streaks'} onClick={closeMenu}>
           <div className='ostreaks hover'>

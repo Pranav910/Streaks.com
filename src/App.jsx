@@ -96,6 +96,7 @@ function App() {
         <div className="side-menu-content" style={{ position: "relative", height: "100%" }}>
           <Sidemenu
             closeMenu={closeMenu}
+            login = {loginStatus}
           />
         </div>
       </div>
