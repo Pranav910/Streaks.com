@@ -176,5 +176,6 @@
         background: url('../images/login.jpg');
         opacity: 0.2;
         position: fixed;
+        background-repeat: no-repeat;
     }
 }

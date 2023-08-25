@@ -165,6 +165,7 @@
     .rmain-img {
         background: url('../images/registration.jpg');
         opacity: 0.2;
+        background-repeat: no-repeat;
     }
 
 
