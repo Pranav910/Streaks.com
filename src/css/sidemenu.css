@@ -87,6 +87,7 @@
     border-radius: 20px;
     background: linear-gradient(147deg, rgb(213, 74, 255) 13.36%, rgb(255, 86, 74) 59.90%);
     width: 70%;
+    cursor: pointer;
 }
 
 .hide {

@@ -7,10 +7,12 @@ import ContactsIcon from '@mui/icons-material/Contacts';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function Sidemenu(props) {
 
+
+  const navigate = useNavigate()
 
   function closeMenu() {
     props.closeMenu()
@@ -28,6 +30,9 @@ function Sidemenu(props) {
       },
       credentials : 'include'
     })
+
+    if (res.status === 200)
+      navigate('/login')
   }
 
   return (
