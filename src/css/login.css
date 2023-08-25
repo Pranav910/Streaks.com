@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400&family=David+Libre:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Varela+Round&display=swap');
 
-.lmain{
+.lmain {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -17,32 +17,31 @@
     border-radius: 15px;
 }
 
-.lmain h1{
+.lmain h1 {
     text-align: center;
     margin-top: 20px;
     font-family: 'Varela Round';
 }
 
-.lmain .subl-main {
+.subl-main {
     display: flex;
 }
 
-.lmain .subl-main .llogin-div{
+.llogin-div {
     width: 50%;
 }
 
-
-.lmain .subl-main .limg-div{
+.limg-div {
     width: 50%;
     height: 100%;
 }
 
-.lmain .subl-main .limg-div img {
-     height: 100%;
-     width: 100%;
+.limg-div img {
+    height: 100%;
+    width: 100%;
 }
 
-.lmain .subl-main .llogin-div form {
+.llogin-div form {
     display: flex;
     flex-direction: column;
     margin: auto 0;
@@ -50,7 +49,7 @@
     justify-content: center;
 }
 
-.lmain .subl-main .llogin-div form input {
+.llogin-div form input {
     border: 1px solid black;
     margin: 10px auto;
     width: 70%;
@@ -59,7 +58,7 @@
     outline: none;
 }
 
-.lmain .subl-main .llogin-div form button {
+.llogin-div form button {
     width: 70%;
     margin: 30px auto 10px auto;
     border: none;
@@ -73,52 +72,109 @@
     cursor: pointer;
 }
 
-.lmain .subl-main .llogin-div form button:hover {
+.llogin-div form button:hover {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.313);
 }
 
-.lmain .subl-main .llogin-div .forgot-pass {
+.forgot-pass {
     width: 70%;
     margin: 5px auto 0 auto;
     display: flex;
     justify-content: end;
 }
 
-.lmain .subl-main .llogin-div .forgot-pass a{
+.forgot-pass a {
     text-decoration: none;
     color: black;
 }
 
-.lmain .subl-main .llogin-div .forgot-pass a:hover {
+.forgot-pass a:hover {
     text-decoration: underline;
 }
 
-.lmain .subl-main .llogin-div .lor-div {
+.lor-div {
     width: 70%;
     margin: 10px auto;
     display: flex;
     align-items: center;
 }
 
-.lmain .subl-main .llogin-div .lor-div .lline-1, .lline-2{
+.lline-1,
+.lline-2 {
     width: 100%;
     background-color: black;
     height: 0.5px;
 }
 
-.lmain .subl-main .llogin-div .lor-div p{
+.lor-div p {
     margin: 0 8px;
 }
 
-.lmain .subl-main .llogin-div .lregister {
+.lregister {
     width: 70%;
     margin: 10px auto;
 }
 
-.lmain .subl-main .llogin-div .lregister a {
+.lregister a {
     text-decoration: none;
 }
 
-.lmain .subl-main .llogin-div .lregister a:hover{
+.lregister a:hover {
     text-decoration: underline;
+}
+
+.lmain-img {
+    height: 100%;
+    width: 100%;
+}
+
+@media (max-width : 650px) {
+    .lmain {
+        height: 110%;
+    }
+
+    .llogin-div {
+        /* position: absolute; */
+        width: 100%;
+    }
+
+    .limg-div {
+        position: absolute;
+        display: none;
+    }
+
+    .subl-main {
+        display: block;
+        /* position: relative; */
+        height: 100%;
+        width: 100%;
+    }
+
+    .l-submain {
+        width: 100vw;
+        box-shadow: none;
+    }
+
+    .llogin-div form {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+
+    /* .lmain-img img {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        opacity: 0.1;
+    } */
+
+    .llogin-div form input {
+        background: transparent;
+    }
+
+    .lmain-img {
+        background: url('../images/login.jpg');
+        opacity: 0.2;
+        position: fixed;
+    }
 }

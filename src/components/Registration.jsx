@@ -59,7 +59,7 @@ function Registration() {
   return (
     <div className="main">
       <ToastContainer />
-      <img src={registration} alt="" className='main-img'/>
+      <div className="rmain-img"></div>
       <div className="register-submain">
       {/* <h1>Create an Account</h1> */}
       <div className='register-div'>

@@ -121,10 +121,16 @@
     display: none;
 }
 
+.rmain-img {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
 @media (max-width : 650px)
 {
     .register-submain {
-        width: 400px;
+        width: 100vw;
     }
 
     .register-div .img-div {
@@ -151,5 +157,15 @@
     .register-div .or-login .have-acc{
         text-align: center;
     }
+
+    .register-div form input {
+        background: transparent;
+    }
     
+    .rmain-img {
+        background: url('../images/registration.jpg');
+        opacity: 0.2;
+    }
+
+
 }
