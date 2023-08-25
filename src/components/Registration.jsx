@@ -61,7 +61,7 @@ function Registration() {
       <ToastContainer />
       <div className="rmain-img"></div>
       <div className="register-submain">
-      {/* <h1>Create an Account</h1> */}
+      <h1>Create an Account</h1>
       <div className='register-div'>
         <form>
           <input type="text" value={data.username} name='username' placeholder='Enter Username' onChange={enterData} />

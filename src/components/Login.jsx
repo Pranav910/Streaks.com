@@ -53,10 +53,9 @@ function Login() {
     <div className="lmain">
       <ToastContainer />
       <div className="lmain-img">
-      {/* <img src = {login} alt="" /> */}
       </div>
       <div className="l-submain">
-        {/* <h1>User Login</h1> */}
+        <h1>User Login</h1>
         <div className='subl-main'>
           <div className="limg-div">
             <img src={login} alt="" />
