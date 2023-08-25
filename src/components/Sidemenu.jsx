@@ -31,7 +31,7 @@ function Sidemenu(props) {
       credentials : 'include'
     })
 
-    if (res.status === 200)
+    if (res.status === 202)
       navigate('/login')
   }
 
