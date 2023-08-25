@@ -11,28 +11,24 @@ import { NavLink } from 'react-router-dom';
 
 function Sidemenu(props) {
 
-  const [showLogin, setShowLogin] = useState(false)
 
   function closeMenu() {
     props.closeMenu()
   }
 
-  // async function findIfLogin() {
-  //   const res = await fetch('https://streaks-api-ckn9.onrender.com/user-login', {
-  //     method: 'GET',
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json'
-  //     },
-  //     credentials: 'include'
-  //   })
-  // }
+  async function logout(e)
+  {
+    e.preventDefault()
 
-  //   useEffect(() => {
-
-  //     findIfLogin()
-  
-  //   })
+    const res = await fetch('https://streaks-api-ckn9.onrender.com', {
+      method : 'GET',
+      headers : {
+        Accept : 'application/json',
+        'Content-Type' : 'application/json'
+      },
+      credentials : 'include'
+    })
+  }
 
   return (
     <div className='menu-main'>
@@ -94,17 +90,10 @@ function Sidemenu(props) {
         </NavLink>
 
       </div>
-      <div className='logout'>
+      {props.login ? <div className='logout'>
           <div className="line"></div>
-        <NavLink>
-          <div>
-            <p>Logout</p>
-          </div>
-          <div className="logout-icon">
-            <LogoutIcon />
-          </div>
-        </NavLink>
-      </div>
+          <button onClick={logout}>Logout</button>
+      </div> : null}
     </div>
   )
 }

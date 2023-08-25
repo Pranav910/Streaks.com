@@ -75,28 +75,18 @@
     cursor: pointer;
     margin: 10px auto;
     width: 100%;
-}
-
-
-.logout a {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    text-decoration: none;
-    color: black;
-    justify-content: center;
+}
+
+.logout button {
+    border: none;
+    color: white;
     padding: 10px;
-    width: 100%;
     border-radius: 20px;
-    background-color: rgb(237, 71, 71);
-    transition: all 0.2s;
-}
-
-.logout a:hover {
-    transform: translateY(-2px);
-}
-
-.logout a p {
-    margin-right: 10px;
+    background: linear-gradient(147deg, rgb(213, 74, 255) 13.36%, rgb(255, 86, 74) 59.90%);
+    width: 70%;
 }
 
 .hide {
