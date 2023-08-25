@@ -107,7 +107,7 @@ function App() {
         <Route path="streaks" element={<Streaks />} >
         </Route>
         <Route path='my-streaks' element={<MyStreaks />} />
-        <Route path='/my-streaks/drinking-water-streak' element={<DrinkWater />} />
+        <Route path='my-streaks/drinking-water-streak' element={<DrinkWater />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Registration />} />
         <Route path='help' element={<Help />} />

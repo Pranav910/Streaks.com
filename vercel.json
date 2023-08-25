@@ -13,7 +13,35 @@
             "dest" : "/"
         },
         {
-            "src" : "/straks",
+            "src" : "/my-streaks",
+            "dest" : "/"
+        },
+        {
+            "src" : "/help",
+            "dest" : "/"
+        },
+        {
+            "src" : "/my-streaks/drinking-water-streak",
+            "dest" : "/"
+        },
+        {
+            "src" : "/my-straks",
+            "dest" : "/"
+        },
+        {
+            "src" : "/my-straks",
+            "dest" : "/"
+        },
+        {
+            "src" : "/my-straks",
+            "dest" : "/"
+        },
+        {
+            "src" : "/my-straks",
+            "dest" : "/"
+        },
+        {
+            "src" : "/my-straks",
             "dest" : "/"
         },
         {
