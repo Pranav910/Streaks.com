@@ -54,7 +54,7 @@ function MyStreaks() {
                   key={index}
                   content={val.descreption}
                   index={val.index}
-                  src={val.img_src}
+                  src={val.src}
                   statusLink={val.statusLink}
                   time={val.timeOfCreation.time}
                 />

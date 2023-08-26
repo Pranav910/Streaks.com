@@ -82,7 +82,7 @@ function Cards(props) {
       },
       credentials: 'include',
       body: JSON.stringify({streakToAdd : 
-        { descreption: props.content, id: props.cardIndex, img_src: props.src, statusLink: props.link, timeOfCreation: { time } }
+        { descreption: props.content, id: props.cardIndex, src: props.src, statusLink: props.link, timeOfCreation: { time } }
       })
     })
 
