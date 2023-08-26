@@ -25,6 +25,7 @@ function MyStreaks() {
       })
 
       const resdata = await res.json()
+      console.log('my-streaks')
       
       if (res.status === 200) {
         setData(resdata.userstreaks)
@@ -32,7 +33,7 @@ function MyStreaks() {
     }
 
     fetchData()
-  }, [data])
+  }, [])
 
   return (
     <div className='mystreaks-main'>

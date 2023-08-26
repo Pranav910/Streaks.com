@@ -10,7 +10,7 @@ import nofap from "../images/nofap.jpg"
 const cards = [
     {
         description : "Water Drinking Streak",
-        img : '../images/drinkwater.jpg',
+        img : drinkwater,
         link : "/my-streaks/drinking-water-streak",
         index : 0
     },

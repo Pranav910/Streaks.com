@@ -2,6 +2,7 @@ import React from 'react'
 import '../css/mystreakscard.css'
 import { useNavigate } from 'react-router-dom'
 import DrinkWater from './DrinkWater'
+import drinkwater from '../images/drinkwater.jpg'
 
 function MyStreaksCard(props) {
 
@@ -22,7 +23,7 @@ function MyStreaksCard(props) {
 
 
             <div className="navigate" onClick={navigate}>
-                <img src={props.src} />
+                <img src= {props.src}/>
             </div>
 
         </div>
