@@ -16,7 +16,7 @@ function MyStreaks() {
   useEffect(() => {
     async function fetchData() {
       
-      const res = await fetch('/add-streaks', {
+      const res = await fetch('https://streaks-api-ckn9.onrender.com/add-streaks', {
         method: 'get',
         headers: {
           'Content-Type': 'application/json'

@@ -22,7 +22,7 @@ function Sidemenu(props) {
   {
     e.preventDefault()
 
-    const res = await fetch('/user-logout', {
+    const res = await fetch('https://streaks-api-ckn9.onrender.com/user-logout', {
       method : 'GET',
       headers : {
         Accept : 'application/json',

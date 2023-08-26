@@ -75,7 +75,7 @@ function Cards(props) {
     const time = getTime()
 
 
-    const res = await fetch('/add-streaks', {
+    const res = await fetch('https://streaks-api-ckn9.onrender.com/add-streaks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
