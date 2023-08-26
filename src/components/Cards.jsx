@@ -74,7 +74,7 @@ function Cards(props) {
 
     const time = getTime()
 
-
+    console.log(props.src)
     const res = await fetch('https://streaks-api-ckn9.onrender.com/add-streaks', {
       method: 'POST',
       headers: {
