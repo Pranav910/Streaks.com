@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../css/cards.css"
 import { createStreak } from "../actions/index"
 import { useDispatch } from 'react-redux'
@@ -8,10 +8,9 @@ import { toast } from 'react-toastify'
 function Cards(props) {
 
   const [date, setDate] = useState(new Date())
-
+  const [cardData, setCardData] = useState([])
 
   const dispatch = useDispatch()
-  const data = useSelector(state => state.streaks)
 
   // console.log("second")
 
@@ -66,15 +65,25 @@ function Cards(props) {
     return `${SetDay()}, ${setMonth()}, ${date.getFullYear()}-${date.getHours()}h : ${date.getMinutes()}m : ${date.getSeconds()}s`
   }
 
+
   async function addData(e) {
 
-    const res = await fetch('https://streaks-api-ckn9.onrender.com/streaks-option', {
-      method: 'GET',
+    e.preventDefault()
+
+    setDate(new Date())
+
+    const time = getTime()
+
+
+    const res = await fetch('/add-streaks', {
+      method: 'POST',
       headers: {
-        Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      credentials: 'include'
+      credentials: 'include',
+      body: JSON.stringify({streakToAdd : 
+        { descreption: props.content, id: props.cardIndex, src: props.src, statusLink: props.link, timeOfCreation: { time } }
+      })
     })
 
     if (res.status === 401) {
@@ -83,11 +92,19 @@ function Cards(props) {
 
     else if (res.status === 200) {
 
-      setDate(new Date())
+      // setCardData(prev => {
+      //   return (
+      //     [
+      //       ...prev,
+      //       { descreption: props.content, id: props.cardIndex, src: props.src, statusLink: props.link, timeOfCreation: { time } }
+      //     ]
+      //   )
+      // })
 
-      const time = getTime()
+      const resdata = await res.json()
+      dispatch(createStreak(resdata.userstreaks))
+      console.log(resdata.userstreaks)
 
-      dispatch(createStreak({ descreption: props.content, id: props.cardIndex, src: props.src, statusLink: props.link, timeOfCreation: { time } }))
       props.toast('success')
     }
   }

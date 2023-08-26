@@ -39,7 +39,7 @@ function App() {
   }, []);
 
   async function findIfLogin() {
-    const res = await fetch('https://streaks-api-ckn9.onrender.com/user-login', {
+    const res = await fetch('/user-login', {
       method: 'GET',
       headers: {
         Accept: 'application/json',

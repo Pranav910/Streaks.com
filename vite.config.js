@@ -8,8 +8,8 @@ export default defineConfig({
     proxy : {
       '/new_registration' : 'http://localhost:5000',
       '/user-login' : 'http://localhost:5000',
-      '/streaks-option' : 'http://localhost:5000',
-      '/logout' : 'http://localhost:5000',
+      '/add-streaks' : 'http://localhost:5000',
+      '/user-logout' : 'http://localhost:5000',
     }
   },
   plugins: [react()],
