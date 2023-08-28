@@ -70,12 +70,14 @@ function Cards(props) {
 
     e.preventDefault()
 
+    props.showLoader(true)
+
     setDate(new Date())
 
     const time = getTime()
 
     console.log(props.src)
-    const res = await fetch('https://streaks-api-ckn9.onrender.com/add-streaks', {
+    const res = await fetch('/add-streaks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -88,6 +90,7 @@ function Cards(props) {
 
     if (res.status === 401) {
       props.toast('error')
+      props.showLoader(false)
     }
 
     else if (res.status === 200) {
@@ -106,6 +109,7 @@ function Cards(props) {
       console.log(resdata.userstreaks)
 
       props.toast('success')
+      props.showLoader(false)
     }
   }
 

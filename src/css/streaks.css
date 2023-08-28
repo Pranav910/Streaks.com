@@ -5,6 +5,7 @@
     margin: 0 auto;
     height: auto;
     padding-top: 100px;
+    position: relative;
 }
 
 .streaks-main h1 {

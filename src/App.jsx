@@ -12,6 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Sidemenu from './components/Sidemenu'
 import DrinkWater from './components/DrinkWater'
 import MyStreaks from './components/MyStreaks'
+import Loader from './components/Loader'
 
 function App() {
 
@@ -28,7 +29,6 @@ function App() {
       setShadowIntensity(currentPosition * 0.01)
       return currentPosition
     });
-
   };
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function App() {
   }, []);
 
   async function findIfLogin() {
-    const res = await fetch('https://streaks-api-ckn9.onrender.com/user-login', {
+    const res = await fetch('/user-login', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -78,6 +78,7 @@ function App() {
 
   return (
     <div className="app-main">
+      {/* <Loader/> */}
       <div className='nav-container'>
 
         <div className="nav-comp">

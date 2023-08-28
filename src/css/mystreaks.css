@@ -1,7 +1,7 @@
 .mystreaks-main{
     height: 100%;
     width: 100%;
-    padding-top: 90px;
+    position: absolute;
 }
 
 .no-streaks-main {
@@ -42,6 +42,8 @@
 .added-streaks-main {
     height: 100%;
     width: 100%;
+    padding-top: 90px;
+    position: fixed;
 }
 
 .added-streaks {

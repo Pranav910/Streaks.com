@@ -4,19 +4,19 @@ import MyStreaksCard from './MyStreaksCard'
 import '../css/mystreaks.css'
 import { NavLink, Routes, Route, Outlet, useNavigate } from 'react-router-dom'
 import DrinkWater from './DrinkWater'
+import Loader from './Loader'
 
 function MyStreaks() {
 
   const [data, setData] = useState([])
-  // const data = useSelector(state => state.streaks)
-  const dispatch = useDispatch()
-  // console.log(data)
-  const navigate = useNavigate()
+  const [loader, setLoader] = useState(true)
 
   useEffect(() => {
     async function fetchData() {
+      setLoader(true)
+
       
-      const res = await fetch('https://streaks-api-ckn9.onrender.com/add-streaks', {
+      const res = await fetch('/add-streaks', {
         method: 'get',
         headers: {
           'Content-Type': 'application/json'
@@ -28,7 +28,11 @@ function MyStreaks() {
       console.log('my-streaks')
       
       if (res.status === 200) {
+        setLoader(false)
         setData(resdata.userstreaks)
+      }
+      else if (res.status === 401){
+        setLoader(false)
       }
     }
 
@@ -37,6 +41,7 @@ function MyStreaks() {
 
   return (
     <div className='mystreaks-main'>
+      {loader ? <Loader/> : null}
       {data.length == 0 ?
         <div className="no-streaks-main">
           <div className='no-streaks'>

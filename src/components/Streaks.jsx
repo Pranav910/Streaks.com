@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import cards from "../data/Cardsdata"
 import Cards from './Cards'
 import "../css/streaks.css"
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import Loader from './Loader'
 
 function Streaks() {
+
+  const [loader, setLoader] = useState(false)
+
+  function showLoader(state)
+  {
+    setLoader(state)
+  }
 
   function showToast(status) {
 
@@ -18,6 +26,7 @@ function Streaks() {
 
   return (
     <div className="streaks-main">
+      {loader ? <Loader/> : null}
       <ToastContainer />
       <h1>Start Building Streaks</h1>
       <div className='streaks'>
@@ -32,6 +41,7 @@ function Streaks() {
                 link={val.link}
                 cardIndex={val.index}
                 toast={showToast}
+                showLoader = {showLoader}
               />
             )
           }

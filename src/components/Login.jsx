@@ -3,6 +3,7 @@ import login from "../images/login.jpg"
 import "../css/login.css"
 import { NavLink, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
+import Loader from './Loader'
 
 function Login() {
 
@@ -12,6 +13,7 @@ function Login() {
   })
 
   const navigate = useNavigate()
+  const [loader, setLoader] = useState(false)
 
   function enterData(e) {
     const { name, value } = e.target
@@ -27,9 +29,11 @@ function Login() {
   async function userLogin(e) {
     e.preventDefault()
 
+    setLoader(true)
+
     const { email, password } = data
 
-    const res = await fetch('https://streaks-api-ckn9.onrender.com/user-login', {
+    const res = await fetch('/user-login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', },
       body: JSON.stringify({ email, password }),
@@ -38,19 +42,25 @@ function Login() {
 
     const resData = await res.json()
 
-    if (res.status === 200) { 
+    if (res.status === 200) {
       navigate('/streaks')
-      toast.success(resData.message, { position: toast.POSITION.TOP_CENTER }) 
-  }
-    if (res.status === 400)
+      toast.success(resData.message, { position: toast.POSITION.TOP_CENTER })
+      setLoader(false)
+    }
+    if (res.status === 400) {
       toast.error(resData.message, { position: toast.POSITION.TOP_CENTER })
-    if (res.status === 401)
+      setLoader(false)
+    }
+    if (res.status === 401) {
       toast.error(resData.message, { position: toast.POSITION.TOP_CENTER })
+      setLoader(false)
+    }
 
   }
 
   return (
     <div className="lmain">
+      {loader ? <Loader /> : null}
       <ToastContainer />
       <div className="lmain-img">
       </div>
