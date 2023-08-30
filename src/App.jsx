@@ -2,7 +2,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Streaks from './components/Streaks'
-import { Route, Routes} from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Login from './components/Login'
 import Registration from './components/Registration'
 import Error from "./components/Error"
@@ -35,14 +35,15 @@ function App() {
     });
   };
 
-  function checkLogInStatus(status) {
-    if (status) {
-      setIsAuthenticated(false)
-      setLoginStatus(false)
-    }else {
-      setIsAuthenticated(true)
-      setLoginStatus(true)
-    }
+
+  function refresh()
+  {
+    setLoginStatus(true)
+  }
+
+  function logout()
+  {
+    setLoginStatus(false)
   }
 
   useEffect(() => {
@@ -52,33 +53,25 @@ function App() {
     };
   }, []);
 
-  async function findIfLogin() {
-    const res = await fetch('https://streaks-api-ckn9.onrender.com/authenticate', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    })
-
-    const resdata = await res.json()
-
-    if (res.status === 200) {
-      setLoginStatus(true)
-      // setUserName(resdata.username)
-      setIsAuthenticated(true)
-      dispatch(createStreak(resdata.userstreaks))
-    }
-    else {
-      setLoginStatus(false)
-    }
-  }
-
   useEffect(() => {
-    console.log('app.jsx')
-    findIfLogin()
-  })
+    if(localStorage.getItem('userData')){
+      setLoginStatus(true)
+    }
+
+    async function fetchData()
+    {
+      const res = await fetch('https://streaks-api-ckn9.onrender.com/authenticate', {
+        method : 'GET',
+        headers : {
+          Accept : 'application/json',
+          'Content-Type' : 'application/json'
+        },
+        credentials : 'include'
+      })
+
+      // if(res.status === )
+    }
+  }, [])
 
   function openMenu() {
     setZ_index(100)
@@ -94,7 +87,6 @@ function App() {
 
   return (
     <div className="app-main">
-      {/* <Loader/> */}
       <div className='nav-container'>
 
         <div className="nav-comp">
@@ -102,7 +94,7 @@ function App() {
             <button onClick={openMenu}><MenuIcon className='open-icon' /></button>
           </div>
 
-          <Navbar login={loginStatus} checkLogInStatus = {checkLogInStatus}/></div>
+          <Navbar login = {loginStatus}/></div>
         <div className="sub-nav" style={{ boxShadow: `0px 2px 7px rgba(0, 0, 0, 0.313)`, opacity: `${shadowIntensity > 1 ? 1 : shadowIntensity}` }}></div>
       </div>
 
@@ -113,9 +105,8 @@ function App() {
         <div className="side-menu-content" style={{ position: "relative", height: "100%" }}>
           <Sidemenu
             closeMenu={closeMenu}
-            login={loginStatus}
-            checkLogInStatus={checkLogInStatus}
-          // userName={userName}
+            logout = {logout}
+            loginStatus = {loginStatus}
           />
         </div>
       </div>
@@ -123,11 +114,12 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="streaks" element={<Streaks />} >
+        <Route path="streaks" element={<Streaks refresh = {refresh}/>} >
         </Route>
         <Route path='my-streaks' element={<MyStreaks />} />
         <Route path='my-streaks/drinking-water-streak' element={<DrinkWater />} />
-        {loginStatus ? null : <Route path='login' element={<Login />} />}
+        {/* {loginStatus ? null : <Route path='login' element={<Login />} />} */}
+        <Route path='login' element={<Login />} />
         <Route path='register' element={<Registration />} />
         <Route path='help' element={<Help />} />
         <Route path='*' element={<Error />} />

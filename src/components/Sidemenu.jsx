@@ -34,8 +34,9 @@ function Sidemenu(props) {
     if (res.status === 202)
       { 
         navigate('/login')
-        props.checkLogInStatus(true)
-        closeMenu()
+        localStorage.clear()
+        props.logout()
+        props.closeMenu()
       }
   }
 
@@ -71,7 +72,7 @@ function Sidemenu(props) {
           </div>
         </NavLink>
 
-        {!props.login ? <NavLink to={"/login"} onClick={closeMenu} className='hide'>
+        {!props.loginStatus ? <NavLink to={"/login"} onClick={closeMenu} className='hide'>
           <div className='login hover'>
             <div className="login-logo logo">
               <LoginIcon />
@@ -99,10 +100,11 @@ function Sidemenu(props) {
         </NavLink>
 
       </div>
-      {props.login ? <div className='logout'>
+      {props.loginStatus ? <div className='logout'>
           <div className="line"></div>
           <button onClick={logout}>Logout</button>
       </div> : null}
+      
     </div>
   )
 }

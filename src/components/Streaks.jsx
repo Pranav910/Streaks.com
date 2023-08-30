@@ -8,14 +8,12 @@ import Loader from './Loader'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 
-function Streaks() {
+function Streaks(props) {
 
   const [loader, setLoader] = useState(false)
   // const [userStreaks, setUserStreaks] = useState([])
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const userStreaks = useSelector(state => state.streaks)
-
-  // setIsAuthenticated(location.state.loginState)
+  const location = useLocation()
+  let userStreaks = []
 
   function showLoader(state) {
     setLoader(state)
@@ -30,32 +28,16 @@ function Streaks() {
       toast.error('login to create streaks', { position: toast.POSITION.TOP_CENTER })
   }
 
-  // async function fetchData() {
-  //   const res = await fetch('/authenticate', {
-  //     method: 'GET',
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json'
-  //     },
-  //     credentials: 'include'
-  //   })
-
-  //   const resdata = await res.json()
-
-  //   if (res.status === 200) {
-  //     setUserStreaks(resdata.userstreaks)
-  //     setIsAuthenticated(true)
-  //   }
-  // }
-
-  // if (!isAuthenticated) {
-  //   fetchData()
-  // }
-  // else
-  // {
-  //   console.log('authenticated')
-  //   console.log(userStreaks)
-  // }
+  useEffect(() => {
+    if(location.state)
+    {
+      if(location.state.loginStatus)
+      {
+        
+        props.refresh()
+      }
+    }
+  }, [])
 
   return (
     <div className="streaks-main">
@@ -76,7 +58,6 @@ function Streaks() {
                 toast={showToast}
                 showLoader={showLoader}
                 id={val.index}
-                // userStreaks = {isAuthenticated ? userStreaks : null}
               />
             )
           }

@@ -48,7 +48,8 @@ function Login(props) {
     if (res.status === 200) {
       setLoader(false)
       toast.success(resData.message, { position: toast.POSITION.TOP_CENTER })
-      navigate('/streaks', {state : {loginState : true}})
+      localStorage.setItem('userData', JSON.stringify(resData.userData))
+      navigate('/streaks', {state : {loginStatus : true}})
     }
     if (res.status === 400) {
       toast.error(resData.message, { position: toast.POSITION.TOP_CENTER })

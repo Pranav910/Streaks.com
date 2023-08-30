@@ -5,18 +5,26 @@ function Cards(props) {
 
   const [date, setDate] = useState(new Date())
   const [isAdded, setIsAdded] = useState(false)
+  const [streaks, setStreaks] = useState([])
+  let userStreaks = []
 
-  // if (props.userStreaks) {
+  useEffect(() => {
+    if(localStorage.getItem('https://streaks-api-ckn9.onrender.com/userData'))
+    {
+      let data = localStorage.getItem('userData')
+      let parserdData = JSON.parse(data)
+      userStreaks = parserdData.userstreaks
+      // setStreaks(userStreaks)
+      console.log(userStreaks)
 
-  //   props.userStreaks.forEach((val, index) => {
-  //     if (val.id === props.id) {
-  //       setIsAdded(true)
-  //     }
-  //   })
-  // }
-  // else {
-  //   setIsAdded(false)
-  // }
+      userStreaks.forEach(val => {
+        if(val.id === props.id)
+          setIsAdded(true)
+      })
+    }
+  }, [streaks])
+
+  
 
   function SetDay() {
 
@@ -80,7 +88,7 @@ function Cards(props) {
     const time = getTime()
 
     console.log(props.src)
-    const res = await fetch('https://streaks-api-ckn9.onrender.com/add-streaks', {
+    const res = await fetch('/add-streaks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -92,15 +100,16 @@ function Cards(props) {
       })
     })
 
-
     if (res.status === 401) {
       props.toast('error')
       props.showLoader(false)
     }
 
     else if (res.status === 200) {
-
       const resdata = await res.json()
+      localStorage.setItem('userData', JSON.stringify(resdata))
+      setStreaks(resdata.userstreaks)
+      // console.log(resdata)
       props.toast('success')
       props.showLoader(false)
     }
@@ -116,6 +125,7 @@ function Cards(props) {
           <div className='container'>
             <p>{props.content}</p>
             {isAdded ? <button className='added'>✔ Streak Added</button> : <button className='not-added' onClick={addData}>Create Streak</button>}
+            {/* <button className='not-added' onClick={addData}>Create Streak</button> */}
           </div>
         </div>
       </div>
