@@ -9,7 +9,7 @@ function Cards(props) {
   let userStreaks = []
 
   useEffect(() => {
-    if(localStorage.getItem('https://streaks-api-ckn9.onrender.com/userData'))
+    if(localStorage.getItem('userData'))
     {
       let data = localStorage.getItem('userData')
       let parserdData = JSON.parse(data)
