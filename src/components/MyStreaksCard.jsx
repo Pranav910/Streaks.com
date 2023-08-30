@@ -20,12 +20,9 @@ function MyStreaksCard(props) {
                 <p>{props.index}</p>
             </div>
 
-
-
             <div className="navigate" onClick={navigate}>
                 <img src= {props.src}/>
             </div>
-
         </div>
     )
 }
