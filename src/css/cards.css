@@ -52,7 +52,7 @@
     letter-spacing: 0.3px;
 }
 
-.cards .overlay .content .container button{
+.cards .overlay .content .container .not-added{
     background: linear-gradient(147deg, rgb(213, 74, 255) 13.36%, rgb(255, 86, 74) 59.90%);
     color: white;
     border: none;
@@ -66,8 +66,22 @@
     transition: all 0.5s;
 }
 
-.cards .overlay .content .container button:hover{
+.cards .overlay .content .container .not-added:hover{
     transform: translateY(47px);
+}
+
+.cards .overlay .content .container .added{
+    background: rgb(4, 146, 4);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 13px;
+    border-radius: 100px;
+    cursor: pointer;
+    position: absolute;
+    transform: translateY(50px);
+    transition: all 0.5s;
 }
 
 .cards:hover .overlay{

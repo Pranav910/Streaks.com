@@ -2,7 +2,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Streaks from './components/Streaks'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom'
 import Login from './components/Login'
 import Registration from './components/Registration'
 import Error from "./components/Error"
@@ -13,16 +13,20 @@ import Sidemenu from './components/Sidemenu'
 import DrinkWater from './components/DrinkWater'
 import MyStreaks from './components/MyStreaks'
 import Loader from './components/Loader'
+import { useDispatch } from 'react-redux'
+import { createStreak } from './actions'
 
 function App() {
 
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [shadowIntensity, setShadowIntensity] = useState(0)
   const [translate, setTranslate] = useState(-100)
   const [opacity, setOpacity] = useState(0)
   const [z_index, setZ_index] = useState(0)
   const [loginStatus, setLoginStatus] = useState(false)
-  const location = useLocation()
+  const [userName, setUserName] = useState('')
+  const dispatch = useDispatch()
   const handleScroll = () => {
     const currentPosition = window.scrollY || document.documentElement.scrollTop;
     setScrollPosition(() => {
@@ -30,6 +34,16 @@ function App() {
       return currentPosition
     });
   };
+
+  function checkLogInStatus(status) {
+    if (status) {
+      setIsAuthenticated(false)
+      setLoginStatus(false)
+    }else {
+      setIsAuthenticated(true)
+      setLoginStatus(true)
+    }
+  }
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -39,7 +53,7 @@ function App() {
   }, []);
 
   async function findIfLogin() {
-    const res = await fetch('/user-login', {
+    const res = await fetch('https://streaks-api-ckn9.onrender.com/authenticate', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -48,20 +62,22 @@ function App() {
       credentials: 'include'
     })
 
+    const resdata = await res.json()
+
     if (res.status === 200) {
-      console.log('hello')
       setLoginStatus(true)
+      // setUserName(resdata.username)
+      setIsAuthenticated(true)
+      dispatch(createStreak(resdata.userstreaks))
     }
     else {
-      console.log('not hello')
       setLoginStatus(false)
     }
   }
 
   useEffect(() => {
-
+    console.log('app.jsx')
     findIfLogin()
-
   })
 
   function openMenu() {
@@ -86,7 +102,7 @@ function App() {
             <button onClick={openMenu}><MenuIcon className='open-icon' /></button>
           </div>
 
-          <Navbar login={loginStatus} /></div>
+          <Navbar login={loginStatus} checkLogInStatus = {checkLogInStatus}/></div>
         <div className="sub-nav" style={{ boxShadow: `0px 2px 7px rgba(0, 0, 0, 0.313)`, opacity: `${shadowIntensity > 1 ? 1 : shadowIntensity}` }}></div>
       </div>
 
@@ -97,7 +113,9 @@ function App() {
         <div className="side-menu-content" style={{ position: "relative", height: "100%" }}>
           <Sidemenu
             closeMenu={closeMenu}
-            login = {loginStatus}
+            login={loginStatus}
+            checkLogInStatus={checkLogInStatus}
+          // userName={userName}
           />
         </div>
       </div>
@@ -109,7 +127,7 @@ function App() {
         </Route>
         <Route path='my-streaks' element={<MyStreaks />} />
         <Route path='my-streaks/drinking-water-streak' element={<DrinkWater />} />
-        <Route path='login' element={<Login />} />
+        {loginStatus ? null : <Route path='login' element={<Login />} />}
         <Route path='register' element={<Registration />} />
         <Route path='help' element={<Help />} />
         <Route path='*' element={<Error />} />

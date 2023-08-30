@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import "../css/cards.css"
-import { createStreak } from "../actions/index"
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
 
 function Cards(props) {
 
   const [date, setDate] = useState(new Date())
-  const [cardData, setCardData] = useState([])
+  const [isAdded, setIsAdded] = useState(false)
 
-  const dispatch = useDispatch()
+  // if (props.userStreaks) {
 
-  // console.log("second")
+  //   props.userStreaks.forEach((val, index) => {
+  //     if (val.id === props.id) {
+  //       setIsAdded(true)
+  //     }
+  //   })
+  // }
+  // else {
+  //   setIsAdded(false)
+  // }
 
   function SetDay() {
 
@@ -65,7 +69,6 @@ function Cards(props) {
     return `${SetDay()}, ${setMonth()}, ${date.getFullYear()}-${date.getHours()}h : ${date.getMinutes()}m : ${date.getSeconds()}s`
   }
 
-
   async function addData(e) {
 
     e.preventDefault()
@@ -77,16 +80,18 @@ function Cards(props) {
     const time = getTime()
 
     console.log(props.src)
-    const res = await fetch('/add-streaks', {
+    const res = await fetch('https://streaks-api-ckn9.onrender.com/add-streaks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       credentials: 'include',
-      body: JSON.stringify({streakToAdd : 
-        { descreption: props.content, id: props.cardIndex, src: props.src, statusLink: props.link, timeOfCreation: { time } }
+      body: JSON.stringify({
+        streakToAdd:
+          { descreption: props.content, id: props.cardIndex, src: props.src, statusLink: props.link, timeOfCreation: { time } }
       })
     })
+
 
     if (res.status === 401) {
       props.toast('error')
@@ -95,19 +100,7 @@ function Cards(props) {
 
     else if (res.status === 200) {
 
-      // setCardData(prev => {
-      //   return (
-      //     [
-      //       ...prev,
-      //       { descreption: props.content, id: props.cardIndex, src: props.src, statusLink: props.link, timeOfCreation: { time } }
-      //     ]
-      //   )
-      // })
-
       const resdata = await res.json()
-      dispatch(createStreak(resdata.userstreaks))
-      console.log(resdata.userstreaks)
-
       props.toast('success')
       props.showLoader(false)
     }
@@ -122,7 +115,7 @@ function Cards(props) {
         <div className='content'>
           <div className='container'>
             <p>{props.content}</p>
-            <button onClick={addData}>Create Streak</button>
+            {isAdded ? <button className='added'>✔ Streak Added</button> : <button className='not-added' onClick={addData}>Create Streak</button>}
           </div>
         </div>
       </div>

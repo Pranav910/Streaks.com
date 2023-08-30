@@ -4,8 +4,10 @@ import "../css/login.css"
 import { NavLink, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import Loader from './Loader'
+import { useDispatch } from 'react-redux'
+import { createStreak } from '../actions'
 
-function Login() {
+function Login(props) {
 
   const [data, setData] = useState({
     email: '',
@@ -13,6 +15,7 @@ function Login() {
   })
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [loader, setLoader] = useState(false)
 
   function enterData(e) {
@@ -33,7 +36,7 @@ function Login() {
 
     const { email, password } = data
 
-    const res = await fetch('/user-login', {
+    const res = await fetch('https://streaks-api-ckn9.onrender.com/user-login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', },
       body: JSON.stringify({ email, password }),
@@ -43,9 +46,9 @@ function Login() {
     const resData = await res.json()
 
     if (res.status === 200) {
-      navigate('/streaks')
-      toast.success(resData.message, { position: toast.POSITION.TOP_CENTER })
       setLoader(false)
+      toast.success(resData.message, { position: toast.POSITION.TOP_CENTER })
+      navigate('/streaks', {state : {loginState : true}})
     }
     if (res.status === 400) {
       toast.error(resData.message, { position: toast.POSITION.TOP_CENTER })

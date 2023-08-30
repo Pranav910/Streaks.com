@@ -22,7 +22,7 @@ function Sidemenu(props) {
   {
     e.preventDefault()
 
-    const res = await fetch('/user-logout', {
+    const res = await fetch('https://streaks-api-ckn9.onrender.com/user-logout', {
       method : 'GET',
       headers : {
         Accept : 'application/json',
@@ -34,6 +34,7 @@ function Sidemenu(props) {
     if (res.status === 202)
       { 
         navigate('/login')
+        props.checkLogInStatus(true)
         closeMenu()
       }
   }
@@ -45,7 +46,7 @@ function Sidemenu(props) {
         <div className="profile">
           <div className="profile-img"></div>
           <div className="user">
-            <p>Pranav910</p>
+            <p>pranav910</p>
           </div>
         </div>
         <button onClick={closeMenu}><CloseIcon className='close-icon' style={{fontSize : "20px"}}/></button>

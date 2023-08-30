@@ -49,13 +49,13 @@ const cards = [
     {
         description : "Healthy Eating Streak",
         img : eathealthy,
-        index : 5
+        index : 6
     },
 
     {
         description : "No Fap Streak",
         img : nofap,
-        index : 5
+        index : 7
     }
 ]
 

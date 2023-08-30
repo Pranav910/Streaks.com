@@ -16,7 +16,7 @@ function MyStreaks() {
       setLoader(true)
 
       
-      const res = await fetch('/add-streaks', {
+      const res = await fetch('https://streaks-api-ckn9.onrender.com/add-streaks', {
         method: 'get',
         headers: {
           'Content-Type': 'application/json'
