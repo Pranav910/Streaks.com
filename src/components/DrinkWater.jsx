@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import "../css/drinkingwater.css"
 import LocalDrinkSharpIcon from '@mui/icons-material/LocalDrinkSharp';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import green_tick from '../images/green-tick.jpg'
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import Loader from './Loader';
 
 function DrinkWater(props) {
 
@@ -12,6 +14,11 @@ function DrinkWater(props) {
     const [opacity, setOpacity] = useState(1)
     const [position, setPosition] = useState("absolute")
     const [top, setTop] = useState(100)
+    const [streaks, setStreaks] = useState([])
+    let userStreaks = []
+    let username = ''
+    const navigate = useNavigate()
+    const [loader, setLoader] = useState(false)
 
     function displayNone() {
         setTranslate(100)
@@ -21,8 +28,41 @@ function DrinkWater(props) {
         // setDisplay("none")
     }
 
+    async function deleteStreak(e) {
+        e.preventDefault()
+
+        setLoader(true)
+
+        if (localStorage.getItem('userData')) {
+            let data = localStorage.getItem('userData')
+            let parsedData = JSON.parse(data)
+            userStreaks = parsedData.userstreaks
+            username = parsedData.username
+            userStreaks = userStreaks.filter(val => {
+                if(fetchedData.state.id !== val.id)
+                    return val
+            })
+        }
+
+        // console.log(fetchedData.state.id)
+
+        const res = await fetch('/delete-streak', {
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify({username, userStreaks})
+        })
+
+        const resdata = await res.json()
+        localStorage.setItem('userData', JSON.stringify(resdata))
+        setLoader(false)
+        navigate('/my-streaks')
+    }
+
     return (
         <div className='drink-main'>
+            {loader ? <Loader/> : null}
             <div className="heading"><h1><LocalDrinkSharpIcon fontSize="20px" style={{ marginRight: "10px" }} /> Drink Water Streak</h1></div>
             <div className="drink-content drink-container">
                 <h1 ><span>⬤</span> Benifits of Drinking Water</h1>
@@ -36,7 +76,7 @@ function DrinkWater(props) {
             </div>
 
             <div className="drink-submain">
-                <div className="drink-amount drink-container" style={{ transform: `translate(${translate}%)`, display: `${display}`, opacity: `${opacity}`}}>
+                <div className="drink-amount drink-container" style={{ transform: `translate(${translate}%)`, display: `${display}`, opacity: `${opacity}` }}>
                     <h1>How much glass of water did you had today?</h1>
                     <div className="amount-radio">
                         <div>
@@ -59,11 +99,15 @@ function DrinkWater(props) {
                     <button onClick={displayNone}>Submit</button>
                 </div>
 
-                <div className="streak-status drink-container" style={{position : `${[position]}`, top : `${top}%`}}>
+                <div className="streak-status drink-container" style={{ position: `${[position]}`, top: `${top}%` }}>
                     <h2>Streak Status</h2>
-                    <p>Today's Streak : <span className='tick-span'><img src = {green_tick} alt="" /></span></p>
+                    <p>Today's Streak : <span className='tick-span'><img src={green_tick} alt="" /></span></p>
                     <p>Time of creation : {fetchedData.state.time}</p>
                 </div>
+            </div>
+
+            <div className="remove">
+                <button onClick={deleteStreak}><HighlightOffIcon style={{ marginRight: '7px' }} />Delete Streak</button>
             </div>
         </div>
     )

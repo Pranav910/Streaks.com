@@ -28,8 +28,8 @@ function MyStreaks() {
       console.log('my-streaks')
       
       if (res.status === 200) {
-        setLoader(false)
         setData(resdata.userstreaks)
+        setLoader(false)
       }
       else if (res.status === 401){
         setLoader(false)
@@ -58,7 +58,7 @@ function MyStreaks() {
                 <MyStreaksCard
                   key={index}
                   content={val.descreption}
-                  index={val.index}
+                  id={val.id}
                   src={val.src}
                   statusLink={val.statusLink}
                   time={val.timeOfCreation.time}

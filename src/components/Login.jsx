@@ -46,16 +46,28 @@ function Login(props) {
     const resData = await res.json()
 
     if (res.status === 200) {
+      setData({
+        email: '',
+        password: '',
+      })
       setLoader(false)
       toast.success(resData.message, { position: toast.POSITION.TOP_CENTER })
       localStorage.setItem('userData', JSON.stringify(resData.userData))
       navigate('/streaks', {state : {loginStatus : true}})
     }
     if (res.status === 400) {
+      setData({
+        email: '',
+        password: '',
+      })
       toast.error(resData.message, { position: toast.POSITION.TOP_CENTER })
       setLoader(false)
     }
     if (res.status === 401) {
+      setData({
+        email: '',
+        password: '',
+      })
       toast.error(resData.message, { position: toast.POSITION.TOP_CENTER })
       setLoader(false)
     }

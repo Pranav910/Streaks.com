@@ -12,8 +12,8 @@ function Cards(props) {
     if(localStorage.getItem('userData'))
     {
       let data = localStorage.getItem('userData')
-      let parserdData = JSON.parse(data)
-      userStreaks = parserdData.userstreaks
+      let parsedData = JSON.parse(data)
+      userStreaks = parsedData.userstreaks
       // setStreaks(userStreaks)
       console.log(userStreaks)
 

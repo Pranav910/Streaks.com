@@ -11,6 +11,7 @@ export default defineConfig({
       '/add-streaks' : 'http://localhost:5000',
       '/user-logout' : 'http://localhost:5000',
       '/authenticate' : 'http://localhost:5000',
+      '/delete-streak' : 'http://localhost:5000',
     }
   },
   plugins: [react()],

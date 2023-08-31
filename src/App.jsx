@@ -36,13 +36,11 @@ function App() {
   };
 
 
-  function refresh()
-  {
+  function refresh() {
     setLoginStatus(true)
   }
 
-  function logout()
-  {
+  function logout() {
     setLoginStatus(false)
   }
 
@@ -54,22 +52,23 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if(localStorage.getItem('userData')){
-      setLoginStatus(true)
-    }
+    // if(localStorage.getItem('userData')){
+    //   setLoginStatus(true)
+    // }
 
-    async function fetchData()
-    {
+    async function fetchData() {
       const res = await fetch('https://streaks-api-ckn9.onrender.com/authenticate', {
-        method : 'GET',
-        headers : {
-          Accept : 'application/json',
-          'Content-Type' : 'application/json'
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
         },
-        credentials : 'include'
+        credentials: 'include'
       })
 
-      // if(res.status === )
+      if (res.status === 200) {
+        setLoginStatus(true)
+      }
     }
   }, [])
 
@@ -94,7 +93,7 @@ function App() {
             <button onClick={openMenu}><MenuIcon className='open-icon' /></button>
           </div>
 
-          <Navbar login = {loginStatus}/></div>
+          <Navbar login={loginStatus} /></div>
         <div className="sub-nav" style={{ boxShadow: `0px 2px 7px rgba(0, 0, 0, 0.313)`, opacity: `${shadowIntensity > 1 ? 1 : shadowIntensity}` }}></div>
       </div>
 
@@ -105,8 +104,8 @@ function App() {
         <div className="side-menu-content" style={{ position: "relative", height: "100%" }}>
           <Sidemenu
             closeMenu={closeMenu}
-            logout = {logout}
-            loginStatus = {loginStatus}
+            logout={logout}
+            loginStatus={loginStatus}
           />
         </div>
       </div>
@@ -114,7 +113,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="streaks" element={<Streaks refresh = {refresh}/>} >
+        <Route path="streaks" element={<Streaks refresh={refresh} />} >
         </Route>
         <Route path='my-streaks' element={<MyStreaks />} />
         <Route path='my-streaks/drinking-water-streak' element={<DrinkWater />} />

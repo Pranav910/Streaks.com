@@ -40,16 +40,32 @@ function Registration() {
     console.log(res.status)
 
     if (res.status === 201) {
+      setData({
+        username: '',
+        email : '',
+        password: '',
+        cpassword: ''
+      })
       setLoader(false)
       toast.success(resdata.message, { position: toast.POSITION.TOP_CENTER })
     }
 
     if (res.status === 400) {
+      setData({
+        username: '',
+        password: '',
+        cpassword: ''
+      })
       setLoader(false)
       toast.error(resdata.message, { position: toast.POSITION.TOP_CENTER })
     }
 
     if (res.status === 409) {
+      setData({
+        username: '',
+        password: '',
+        cpassword: ''
+      })
       setLoader(false)
       toast.error(resdata.message, { position: toast.POSITION.TOP_CENTER })
     }

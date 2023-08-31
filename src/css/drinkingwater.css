@@ -115,3 +115,28 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.remove {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.remove button {
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 10px;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+}
+
+.remove button:hover {
+    background: rgb(206, 18, 56);
+    
+}
