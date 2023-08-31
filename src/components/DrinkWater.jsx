@@ -46,7 +46,7 @@ function DrinkWater(props) {
 
         // console.log(fetchedData.state.id)
 
-        const res = await fetch('/delete-streak', {
+        const res = await fetch('https://streaks-api-ckn9.onrender.com/delete-streak', {
             method : 'POST',
             headers : {
                 'Content-Type' : 'application/json'

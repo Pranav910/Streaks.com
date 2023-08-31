@@ -70,6 +70,8 @@ function App() {
         setLoginStatus(true)
       }
     }
+
+    fetchData()
   }, [])
 
   function openMenu() {
