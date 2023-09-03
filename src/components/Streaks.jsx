@@ -41,6 +41,7 @@ function Streaks(props) {
 
   return (
     <div className="streaks-main">
+      <div className="streaks-submain">
       {loader ? <Loader /> : null}
       <ToastContainer />
       <h1>Start Building Streaks</h1>
@@ -68,6 +69,7 @@ function Streaks(props) {
       {/* <div className="info">
         <p>Start building your streaks</p>
       </div> */}
+      </div>
     </div>
   )
 }

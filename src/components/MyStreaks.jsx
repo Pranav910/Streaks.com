@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import MyStreaksCard from './MyStreaksCard'
 import '../css/mystreaks.css'
-import { NavLink, Routes, Route, Outlet, useNavigate } from 'react-router-dom'
-import DrinkWater from './DrinkWater'
+import { NavLink} from 'react-router-dom'
 import Loader from './Loader'
 
 function MyStreaks() {
@@ -17,8 +15,9 @@ function MyStreaks() {
 
       
       const res = await fetch('https://streaks-api-ckn9.onrender.com/add-streaks', {
-        method: 'get',
+        method: 'GET',
         headers: {
+          Accept : 'application/json',
           'Content-Type': 'application/json'
         },
         credentials: 'include'
