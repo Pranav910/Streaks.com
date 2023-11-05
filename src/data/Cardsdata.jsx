@@ -5,7 +5,7 @@ import meditation from "../images/meditation.jpg"
 import earlywaking from "../images/earlywaking.jpg"
 import gym from "../images/gym.png"
 import eathealthy from "../images/eathealthy.jpg"
-import yoga from "../images/yoga.jpg"
+import yoga from "../images/yoga.png"
 
 const cards = [
     {
