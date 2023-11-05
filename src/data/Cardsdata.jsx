@@ -5,7 +5,7 @@ import meditation from "../images/meditation.jpg"
 import earlywaking from "../images/earlywaking.jpg"
 import gym from "../images/gym.png"
 import eathealthy from "../images/eathealthy.jpg"
-import nofap from "../images/nofap.jpg"
+import yoga from "../images/yoga.jpg"
 
 const cards = [
     {
@@ -53,8 +53,8 @@ const cards = [
     },
 
     {
-        description : "No Fap Streak",
-        img : nofap,
+        description : "Yoga Streak",
+        img : yoga,
         index : 7
     }
 ]
